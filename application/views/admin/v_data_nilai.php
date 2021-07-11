@@ -76,31 +76,27 @@
 												<th style="width: 10%;text-align: center;">Wawancara Ortu</th>
 												<th style="width: 10%;text-align: center;">Paquyuban</th>
 												<th style="width: 10%;text-align: center;">Nilai Akhir</th>
-												<th style="width: 10%;text-align: center;">Rangking</th>
 											</tr>
 										</thead>
 							<tbody>
                                 <tr>
                                     <td>
-                                        <input type="text" name="" value="" class="form-control">
+                                        <input type="text" name=""  value="buddiid" class="form-control">
                                     </td>
                                     <td>
                                         <input type="text" name="" value="" class="form-control">
                                     </td>
                                     <td>
-                                        <input type="number" name="" value="" class="form-control">
+                                        <input type="number" name="" id="qiroah" value="0" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="" id="wawancara" value="0" class="form-control">
+                                    </td>
+                                    <td>
+                                        <input type="number" name="" id="paquyuban" value="0" class="form-control">
                                     </td>
                                     <td>
                                         <input type="number" name="" value="" class="form-control">
-                                    </td>
-                                    <td>
-                                        <input type="number" name="" value="" class="form-control">
-                                    </td>
-                                    <td>
-                                        <input type="number" name="" value="" class="form-control">
-                                    </td>
-                                    <td>
-                                        <input type readonly="number" name="" value="" class="form-control">
                                     </td>
                                 </tr>
 							

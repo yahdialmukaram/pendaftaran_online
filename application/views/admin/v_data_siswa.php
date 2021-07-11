@@ -71,9 +71,10 @@
 									<td><?=$value['tanggal_lahir'];?></td>
 									<td><?=$value['jenis_kelamin'];?></td>
 									<td>
-										<a href="#" class="btn btn-primary btn-sm"
-											onclick="data_nilai(<?=$value['id_user']?>)"> <i class="fa fa-plus"></i>
+										<a href="#" class="btn btn-primary btn-sm beri-nilai"
+											data-name="<?=$value['nama']?>" data-pendaftaran="<?=$value['no_registrasi']?>"> <i class="fa fa-plus"></i>
 											Entri Nilai Siswa</a>
+
 										<a href="<?php echo base_url(); ?>controller/v_details_siswa/<?=$value['id_siswa'];?>"
 											class="btn btn-success btn-sm"> <i class="fa fa-search-plus"></i>
 											Details Siswa</a>
@@ -114,29 +115,33 @@
 							<th style="width: 10%;text-align: center;">Wawancara Ortu</th>
 							<th style="width: 10%;text-align: center;">Paquyuban</th>
 							<th style="width: 10%;text-align: center;">Nilai Akhir</th>
-							</tr>
+						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>
-								<input type="text" name="" value="" class="form-control">
+								<input type="text" name="" id="pendaftaran" value="" class="form-control pendaftaran">
 							</td>
 							<td>
-								<input type="text" name="" value="" class="form-control">
+								<input type="text" name="" id="name" value="" class="form-control name">
 							</td>
 							<td>
-								<input type="number" name="" value="" class="form-control">
+								<input type="number" name="qiroah" onchange="count()" id="qiroah" value="0"
+									class="form-control">
 							</td>
 							<td>
-								<input type="number" name="" value="" class="form-control">
+								<input type="number" name="wawancara_ortu" onchange="count()" id="wawancara" value="0"
+									class="form-control">
 							</td>
 							<td>
-								<input type="number" name="" value="" class="form-control">
+								<input type="number" name="paquyuban" onchange="count()" id="paquyuban" value="0"
+									class="form-control">
 							</td>
 							<td>
-								<input type="number" name="" value="" class="form-control">
+								<input type="number" name="nilai_akhir" readonly id="nilaiakhir" value="0"
+									class="form-control">
 							</td>
-							
+
 						</tr>
 
 					</tbody>
@@ -151,9 +156,27 @@
 </div>
 <!-- end nilai -->
 <script>
-	function data_nilai() {
-
+	$(".beri-nilai").click(function (e) {
+		e.preventDefault();
+		let name = $(this).data('name');
+		let pendaftaran = $(this).data('pendaftaran');
+		// let nomor=$(this).data('nomor');
+		$("#pendaftaran").val(pendaftaran);
+		$(".pendaftaran").attr('readonly', true);
+		// $(".pendaftaran").val(nomor);
+		$("#name").val(name);
+		$(".name").attr('readonly', true);
 		$("#data_nilai").modal("show");
+	});
+
+	function count() {
+		let qiroah = $("#qiroah").val();
+		let wawancara = $("#wawancara").val();
+		let paquyuban = $("#paquyuban").val();
+		let nilaiAkhir;
+		nilaiAkhir = (parseInt(qiroah) + parseInt(wawancara) + parseInt(paquyuban)) / 3;
+		$("#nilaiakhir").val(nilaiAkhir);
+
 	}
 
 </script>
