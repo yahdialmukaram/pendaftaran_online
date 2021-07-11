@@ -30,14 +30,14 @@ class C_siswa extends CI_Controller {
     {
         $data['title'] = 'halaman isi data diri calon siswa';
         
-        // $nik = $this->input->post('nik');
-        // $check_nik = $this->model_siswa->model_check_nik($nik);
-        // if ($check_nik > 0) {
-        //     $this->session->set_flashdata('error', 'Nik sudah terdaftar di sistem');
+        $nik = $this->input->post('nik');
+        $check_nik = $this->model_siswa->check_nik($nik);
+        if ($check_nik > 0) {
+            $this->session->set_flashdata('error', 'Nik anda sudah terdaftar di sistem');
             
-        //     redirect('c_siswa');
+            redirect('c_siswa');
             
-        // }
+        }
         $insert = [
             'id_user' => $this->session->userdata('id_user'),
             'no_registrasi' => $this->input->post('no_registrasi'),
@@ -83,18 +83,60 @@ class C_siswa extends CI_Controller {
     }
     public function dashboard()
     {
-        $data['title'] ='data diri';
+        $data['title'] = 'pendaftaran';
+		$data['status_daftar']=$this->model_siswa->find_data('table_sekolah','id_user',$this->session->userdata('id_user'))->row_array()['id_user'];
+        // $id = $this->input->post('id_user');	
+		
+		// use for register date
+		
+		$t      =time();
+		$day    =20;   
+		$month  =7;
+		$year   =2021;
+		$days   =(int)((mktime (0,0,0,$month,$day,$year) - time())/86400);
+		// echo "Pendaftaran tutup <b>$days</b> hari lagi, sampai tanggal $day/$month/$year";
+        // echo json_encode($days);
+		$data['date_close']=[
+                            'day'=>$day,
+                            'month'=>$month,
+                            'year'=>$year,
+                            ];
+		if ($days > 0) {
+			$data['state_register']=true;
+			$data['time_remaining']=$days;            
+        }elseif ($days == 0) {
+			$data['state_register']=true;
+			$data['time_remaining']=$days;           
+        } else {
+			$data['state_register']=false;
+		}
         $this->load->view('siswa/header',$data);
-        $this->load->view('siswa/dashboard');
+        $this->load->view('siswa/dashboard', $data);
         $this->load->view('siswa/footer');   
     }
     
     public function v_sdit1()
     {
-        $data['title'] ='data sdit1';
+        $data['title'] ='SDIT Qurrata Ayun Batusangkar';
         $data['profil_siswa'] = $this->model_siswa->get_profil_siswa();
         $this->load->view('siswa/header',$data);
         $this->load->view('siswa/v_sdit1');
+        $this->load->view('siswa/footer');    
+    }
+    public function v_sdit2()
+    {
+        $data['title'] ="SDIT Qurrata A'yun 2 Lintau";
+        $data['profil_siswa'] = $this->model_siswa->get_profil_siswa();
+        $this->load->view('siswa/header',$data);
+        $this->load->view('siswa/v_sdit2');
+        $this->load->view('siswa/footer');    
+    }
+    public function v_sdit3()
+    {
+        $data['title'] ='SDIT Qurrata Ayun 3 Batusangkar';
+        $data['profil_siswa'] = $this->model_siswa->get_profil_siswa();
+        $this->load->view('siswa/header',$data);
+        $this->load->view('siswa/v_sdit3');
         $this->load->view('siswa/footer');    
     }
    // tambah kan fungsi upload  untuk semua
@@ -126,6 +168,14 @@ class C_siswa extends CI_Controller {
 
     public function save_pendaftaran()
     {
+        $id_user =    $this->session->userdata('id_user');
+        $check_id_user=$this->model->check_user($id_user);
+        if ($check_id_user>0) {
+        $this->session->set_flashdata('error', 'Maaf data yang anda masukan sudah terdaftar');
+
+        redirect('c_siswa/dashboard');    
+    }
+
         $image  = $this->upload('akta_kelahiran');
         $image1  = $this->upload('sk_domisili');
         if ($image ['status']=='success' and $image1['status']=='success') {
@@ -135,24 +185,74 @@ class C_siswa extends CI_Controller {
             'akta_kelahiran'=>$image['data'],
             'sk_domisili'=>$image1['data'],
         ];
+        // logik ambil jadwal
+        $check_kuata=$this->model->check_kuata();
+        if ($check_kuata!==null) {
+            foreach ($check_kuata as $key => $value) {
+                if ($value['kouta']>$value['kouta_terisi']) {
+                    $result[]=[
+                        'id_jadwal'=>$value['id_jadwal'],
+                        'jadwal'=>$value['jadwal']
+                    ];
+                }
+            }
+        }
+        $data =[
+            'id_user' => $this->session->userdata('id_user'),
+            'nama_sekolah'=>$this->input->post('nama_sekolah'),
+            'akta_kelahiran'=>$image['data'],
+            'sk_domisili'=>$image1['data'],
+            'id_jadwal'=>$result[0]['id_jadwal'],
+        ];
+        
+        $check_number = $this->model->check_number($id_user);
+        $list_jadwal=$this->model->ambil_jadwal($result[0]['id_jadwal']);
+        $this->model->update_jadwal($result[0]['id_jadwal'],['kouta_terisi'=>$list_jadwal['kouta_terisi']+1]);
+        // echo json_encode($data);
         $this->model_siswa->save_pendaftaran('table_sekolah', $data);
+        
+        $message='Terimakasih Sudah Mendaftar, nomor Pendaftaran anda :'.$check_number['no_registrasi'].' berikut jadwal ujian anda :'.$result[0]['jadwal'];
+        // $send_message=$this->sms($check_number['no_hp_ortu'],$message);
         $this->session->set_flashdata('success', 'Pendaftaran anda telah berhasil');
+        // echo json_encode($message);
         
         redirect('c_siswa/dashboard');
 
         }else {
-            $this->session->set_flashdata('error', 'data file salah');
+            $this->session->set_flashdata('error', 'type file upload anda salah');
             
             redirect('c_siswa/v_sdit1');
-            
-        }
-       
+   
+        }       
+        
     }
 
 
+    public function sms($nohp,$sms)
+    {
+        
+        $userkey = '3b5371593b81';
+        $passkey = '5bc86e097300c9279c10fb00';
+        $telepon = $nohp;
+        $message = $sms;
+        $url = 'https://console.zenziva.net/reguler/api/sendsms/';
+        $curlHandle = curl_init();
+        curl_setopt($curlHandle, CURLOPT_URL, $url);
+        curl_setopt($curlHandle, CURLOPT_HEADER, 0);
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
+        curl_setopt($curlHandle, CURLOPT_POST, 1);
+        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, array(
+            'userkey' => $userkey,
+            'passkey' => $passkey,
+            'to' => $telepon,
+            'message' => $message
+        ));
+        return $results = json_decode(curl_exec($curlHandle), true);
+        curl_close($curlHandle);
+    }
+
 }
 
-/* End of file Controllername.php */
-
-
-?>

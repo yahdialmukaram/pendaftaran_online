@@ -49,6 +49,25 @@ class Model_siswa extends CI_Model {
     {
         $this->db->insert($table, $data);
     }
+
+    public function check_nik($nik)
+    {
+        $this->db->select('nik');
+        $this->db->from('table_siswa');
+        $this->db->where('nik', $nik);
+        return $this->db->get()->num_rows();
+        
+    }
+
+    public function find_data($table, $referency, $id)
+    {
+        $this->db->from($table);
+        $this->db->where($referency, $id);
+        return $this->db->get();
+        
+        
+        
+    }
     
 
 }

@@ -1,7 +1,7 @@
 
         <!-- footer content -->
         <footer>
-          <p align="center">   <a href="<?=base_url('controller');?>">SDIT Qurrata A'yun Kanbupaten Tanah Datar</a></p>
+          <p align="center">   <a href="<?=base_url('controller');?>">SDIT Qurrata A'yun Kabupaten Tanah Datar</a></p>
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->

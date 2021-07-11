@@ -14,7 +14,7 @@
 
 					<!-- alert simpan data -->
 					<?php if ($this->session->flashdata('success')):?>
-					<div id="pesan" class="aler alert-success" role="alert">
+					<div id="pesan" class="alert alert-success" role="alert">
 						<storng><?=$this->session->flashata('success');?></strong>
 					</div>
 					<?php endif?>
@@ -149,7 +149,7 @@
 										<input type="file" name="akta_kelahiran" value="" class="form-control"
 											placeholder="">
 										<small>
-											<font color="red">Akta kelahiran wajib upload, upload berupa image/foto
+											<font color="red">Akta kelahiran wajib upload, upload berupa file PDF
 											</font>
 										</small>
 									</div>
@@ -160,7 +160,7 @@
 										<input type="file" name="sk_domisili" value="" class="form-control"
 											placeholder="">
 										<small>
-											<font color="red">SK domisi wajib upload, upload berupa image/foto</font>
+											<font color="red">SK domisi wajib upload, upload berupa file PDF</font>
 										</small>
 									</div>
 								</div>

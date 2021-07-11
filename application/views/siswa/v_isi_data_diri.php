@@ -94,18 +94,17 @@
 								</div>
 
 								<!-- alert simpan data -->
-								<?php if ($this->session->flashdata('success')):?>
-								<div id="pesan" class="aler alert-success" role="alert">
-									<storng><?=$this->session->flashata('success');?></strong>
-								</div>
-								<?php endif?>
-								<!-- alet untuk hapus data -->
-								<?php if ($this->session->flashdata('error')):?>
-								<div id="pesan" class="alert alert-danger" role="alert">
-									<strong><?=$this->session->flashdata('error');?></strong>
-								</div>
-								<?php endif;?>
-
+					<?php if ($this->session->flashdata('success')):?>
+					<div id="pesan" class="alert alert-success" role="alert">
+						<storng><?=$this->session->flashata('success');?></strong>
+					</div>
+					<?php endif?>
+					<!-- alet untuk hapus data -->
+					<?php if ($this->session->flashdata('error')):?>
+					<div id="pesan" class="alert alert-danger" role="alert">
+						<strong><?=$this->session->flashdata('error');?></strong>
+					</div>
+					<?php endif;?>
 
 
 								<div class="x_content">
@@ -148,7 +147,7 @@
 													<label class="control-label col-md-3 col-sm-3 col-xs-12">Nama
 													</label>
 													<div class="col-md-9 col-sm-9 col-xs-12">
-														<input type="text" name="nama" value="<?=$this->session->userdata('username');?>" class="form-control"
+														<input type readonly="text" name="nama" value="<?=$this->session->userdata('username');?>" class="form-control"
 															placeholder="Nama">
 													</div>
 												</div>
@@ -275,7 +274,7 @@
 													</label>
 													<div class="col-md-9 col-sm-9 col-xs-12">
 														<select name="keadaan_fisik" id="" class="form-control">
-															<option>normal</option>
+															<option>non disabilitas</option>
 															<option>disabilitas</option>
 														</select>
 													</div>
@@ -570,6 +569,19 @@
 		<script src="<?=base_url();?>assets/vendors/iCheck/icheck.min.js"></script>
 		<!-- moment.js -->
 		<script src="<?=base_url();?>assets/vendors/moment/min/moment.min.js"></script>
+		  <!-- Datatables -->
+		  <script src="<?= base_url();?>assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="<?= base_url();?>assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
 		<!-- bootstrap-datetimepicker -->
 		<script src="<?=base_url();?>assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js">
 		</script>
@@ -598,12 +610,12 @@
 			});
 
 			// pesan berwatu datatabel
-			$('#example2').DataTable()
-			window.setTimeout(function () {
-				$("#pesan").fadeTo(1000, 0).slideUp(500, function () {
-					$(this).remove();
-				});
-			}, 6000);
+			$('#table').DataTable()
+			window.setTimeout(function(){
+			$("#pesan").fadeTo(1000,0).slideUp(500,function () { 
+			$(this).remove();
+			});
+			}, 2000);
 			// tutup pesan
 
 		</script>

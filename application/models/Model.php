@@ -44,6 +44,50 @@ class Model extends CI_Model {
     public function save_jadwal($table, $data)
     {
         $this->db->insert($table, $data);
+    }
+    public function check_kuata(Type $var = null)
+    {
+        $this->db->from('table_jadwal');
+        // $this->db->where('kouta', $Value);
+        
+        return $this->db->get()->result_array();
+        
+    }
+    public function update_jadwal($id_jadwal,$object)
+    {
+        $this->db->where('id_jadwal', $id_jadwal);
+        $this->db->update('table_jadwal', $object);
+        
+    }
+    public function ambil_jadwal($id_jadwal)
+    {
+        $this->db->from('table_jadwal');
+        $this->db->where('id_jadwal', $id_jadwal);
+        $this->db->limit(1);
+        return $this->db->get()->row_array();
+        
+    }
+    public function check_user($id_user)
+    {
+        $this->db->select('id_user');
+        $this->db->from('table_sekolah');
+        $this->db->where('id_user', $id_user);
+        return $this->db->get()->num_rows();
+        
+    }
+
+    public function check_number($id_user)
+    {
+        $this->db->from('table_siswa');
+        $this->db->where('id_user', $id_user);
+        return $this->db->get()->row_array();
+        
+    }
+    public function get_jadwal(Type $var = null)
+    {
+        $this->db->from('table_jadwal');
+        $this->db->order_by('id_jadwal', 'asc');
+        return $this->db->get()->result_array();
         
     }
 }

@@ -25,34 +25,44 @@
 			<div class="col-md-4">
 		    </div>
 			<div class="col-md-4">
-			
-			
+
+			<!-- alert  -->
+			<?php if ($this->session->flashdata('success')):?>
+			<div id="pesan" class="alert alert-success" role="alert">
+				<strong><?=$this->session->flashdata('success');
+							?></strong>
+			</div>
+			<?php endif;?>
+			<!-- aler hapus data -->
+			<?php if ($this->session->flashdata('error')):?>
+			<div id="pesan" class="alert alert-danger" role="alert">
+				<strong><?=$this->session->flashdata('error');
+							?></strong>
+			</div>
+			<?php endif; ?>
+			<!-- end alert -->
+
 			<?php
 			$t    =time();
 			// echo($t . "<br /> Sekarang: ");
 			echo (date("D, d F Y",$t));
 			?>
 			<br /><br />
-		
 
-
+			<?php if ($state_register==true):?>
+			<div class="alert alert-success" role="alert">
+				Pendaftaran tutup dalam <b><?=$time_remaining?></b> hari lagi, sampai tanggal <?=$date_close['day']?>/<?=$date_close['month']?>/<?=$date_close['year']?>
+			</div>
+			<?php elseif ($state_register==false):?>
+				<div class="alert alert-danger" role="alert">
+				Maaf pendaftaran sudah tutup pada tanggal<?=$date_close['day']?>/<?=$date_close['month']?>/<?=$date_close['year']?>
+			</div>
+			<?php endif; ?>
+	
 			</div>
 		  </div>
 		</div>
 		
-		<?php if ($this->session->flashdata('success')):?>
-		<div id="pesan" class="alert alert-success" role="alert">
-			<strong><?=$this->session->flashdata('success');
-						?></strong>
-		</div>
-		<?php endif;?>
-		<!-- aler hapus data -->
-		<?php if ($this->session->flashdata('error')):?>
-		<div id="pesan" class="alert alert-danger" role="alert">
-			<strong><?=$this->session->flashdata('error');
-						?></strong>
-		</div>
-		<?php endif; ?>
 	</div>
 	<!-- /.content-header -->
 	<div class="col-md-12 col-sm-12 col-xs-12">
@@ -70,14 +80,14 @@
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
 	
-	<!-- Main content -->
+			<!-- Main content -->
               <div class="animated flipInY col-lg-4 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
                   <div style="text-align: center;" class="count"><i class="fa fa-user"></i></div>
                   <h5 style="text-align: center;">SDIT Qurrata A'yun</i>
 				  <br>
 				  <br>
-				  <a href="<?=base_url('c_siswa/v_sdit1');?>">Klik di sini </a>
+				  <a href="<?=base_url('c_siswa/v_sdit1');?>" class="btn btn-success btn-sm">Klik di sini </a>
                   </h5>
                 </div>
               </div>
@@ -86,6 +96,9 @@
                 <div class="tile-stats">
                   <div style="text-align: center;" class="count"><i class="fa fa-user"></i></div>
                   <h5 style="text-align: center;">SDIT Qurrata A'yun 2 Lintau</i>
+				  <br>
+				  <br>
+				  <a href="<?=base_url('c_siswa/v_sdit2');?>" class="btn btn-success btn-sm">Klik di sini </a>
                   </h5>
                 </div>
               </div>
@@ -95,16 +108,14 @@
                 <div class="tile-stats">
                   <div style="text-align: center;" class="count"><i class="fa fa-user"></i></div>
                   <h5 style="text-align: center;">SDIT Qurrata A'yun 3 Batusangkar</i>
+				  <br>
+				  <br>
+				  <a href="<?=base_url('c_siswa/v_sdit3');?>" class="btn btn-success btn-sm">Klik di sini </a>
                   </h5>
                 </div>
               </div>
- 
-
-		
 				<!-- ./col -->
 				<div class="col-lg-3 col-6">
-			
-
 				</div>
 				<!-- ./col -->
 			</div>
@@ -156,15 +167,8 @@
 	$("#persaratan").modal("show")
 	}
 
-</script>
+</script>    
 
-
-
-    
-
-
-
-    
-          </div>
+	</div>
         </div>
         <!-- /page content -->

@@ -38,7 +38,8 @@
 						<div class="clearfix"></div>
 					</div>
 
-					<a href="<?=base_url();?>cetak/print_data_siswa" target="_blank" class="btn btn-warning btn-sm fa fa-print"> Print Data Siswa</a>
+					<a href="<?=base_url();?>cetak/print_data_siswa" target="_blank"
+						class="btn btn-warning btn-sm fa fa-print"> Print Data Siswa</a>
 					<div class="x_content">
 
 						<table id="datatable" class="table table-striped table-bordered">
@@ -59,7 +60,7 @@
 							</thead>
 							<tbody>
 								<?php $no = 1; 
-                        foreach ($siswa as $key => $value):?>
+                       			 foreach ($siswa as $key => $value):?>
 								<tr>
 									<td><?=$no++?></td>
 									<td><?=$value['no_registrasi'];?></td>
@@ -70,8 +71,11 @@
 									<td><?=$value['tanggal_lahir'];?></td>
 									<td><?=$value['jenis_kelamin'];?></td>
 									<td>
+										<a href="#" class="btn btn-primary btn-sm"
+											onclick="data_nilai(<?=$value['id_user']?>)"> <i class="fa fa-plus"></i>
+											Entri Nilai Siswa</a>
 										<a href="<?php echo base_url(); ?>controller/v_details_siswa/<?=$value['id_siswa'];?>"
-											class="btn btn-success btn-xs"> <i class="fa fa-search-plus"></i>
+											class="btn btn-success btn-sm"> <i class="fa fa-search-plus"></i>
 											Details Siswa</a>
 									</td>
 								</tr>
@@ -86,6 +90,73 @@
 		</div>
 	</div>
 </div>
+
+
+<!-- Modal  nilai-->
+<div class="modal fade" id="data_nilai" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+	<div class="modal-dialog modal-lg " role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<!-- <h5 style="text-align: center;" class="modal-title">Data Nilai</h5> -->
+				<h5 style="text-align: center;"><b>INPUT NILAI SISWA</b></h5>
+
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<table id="nilai" class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th style="width: 15%; text-align: center;">No Pendaftaran</th>
+							<th style="width: 25%;text-align: center;">Nama Calon Siswa</th>
+							<th style="width: 10%;text-align: center;">Tes Qiroah</th>
+							<th style="width: 10%;text-align: center;">Wawancara Ortu</th>
+							<th style="width: 10%;text-align: center;">Paquyuban</th>
+							<th style="width: 10%;text-align: center;">Nilai Akhir</th>
+							</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="text" name="" value="" class="form-control">
+							</td>
+							<td>
+								<input type="text" name="" value="" class="form-control">
+							</td>
+							<td>
+								<input type="number" name="" value="" class="form-control">
+							</td>
+							<td>
+								<input type="number" name="" value="" class="form-control">
+							</td>
+							<td>
+								<input type="number" name="" value="" class="form-control">
+							</td>
+							<td>
+								<input type="number" name="" value="" class="form-control">
+							</td>
+							
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end nilai -->
+<script>
+	function data_nilai() {
+
+		$("#data_nilai").modal("show");
+	}
+
+</script>
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

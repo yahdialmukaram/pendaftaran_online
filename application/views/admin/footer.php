@@ -1,7 +1,7 @@
 
         <!-- footer content -->
         <footer>
-        <p align="center">   <a href="<?=base_url('controller');?>">SDIT Qurrata A'yun Kanbupaten Tanah Datar</a></p>
+        <p align="center">   <a href="<?=base_url('controller');?>">SDIT Qurrata A'yun Kabupaten Tanah Datar</a></p>
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
@@ -89,14 +89,14 @@
     });
 </script>
 
-       <script>
-// pesan berwatu datatabel
-$('#table').DataTable()
-window.setTimeout(function(){
-$("#pesan").fadeTo(1000,0).slideUp(500,function () { 
-$(this).remove();
-});
-}, 2000);
+<script>
+        // pesan berwatu datatabel
+        $('#table').DataTable()
+        window.setTimeout(function(){
+        $("#pesan").fadeTo(1000,0).slideUp(500,function () { 
+        $(this).remove();
+        });
+        }, 2000);
 
 </script>
 

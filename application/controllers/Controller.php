@@ -54,8 +54,9 @@ class Controller extends CI_Controller {
     public function v_jadwal()
     {
         $data['title']= 'halaman jadwal';
+        $data['jadwal']= $this->model->get_jadwal();
         $this->load->view('admin/header', $data);
-        $this->load->view('admin/v_jadwal');
+        $this->load->view('admin/v_jadwal', $data);
         $this->load->view('admin/footer');        
     }
 
@@ -63,7 +64,6 @@ class Controller extends CI_Controller {
     {
         $jadwal_awal = $this->input->post('jadwal_awal');
         $jadwal_akhir = $this->input->post('jadwal_akhir');
-        
         $data = [
                 'jadwal'=> $jadwal_awal.' sampai '.$jadwal_akhir,
                 'kouta'=>$this->input->post('kouta'),
@@ -103,44 +103,22 @@ class Controller extends CI_Controller {
         
         redirect('controller/v_data_user');
     }
-    public function getData()
+    public function v_data_nilai(Type $var = null)
     {
-        // $data =$this->model->getData();
-        // echo json_encode($data);
-        // print_r($data);
-        $post = [
-            'length' => $this->input->post('length'),
-            'start' => $this->input->post('start'),
-            'order' => $this->input->post('order'),
-            'search' => $this->input->post('search'),
-            'draw' => $this->input->post('draw'),
-            'username' => $this->input->post('username'),
-            "",
-        ];
-        $list = $this->user->get_datatables($post);
-        $data = array();
-        $no = 1;
-        foreach ($list as $field) {
-
-            $row = array();
-            $row[] = $no++;
-            $row[] = $field->judul;
-            $row[] = $field->isi;
-            $row[] = $field->image;
-            $row[] = $field->kategori;
-            $data[] = $row;
-        }
-        $response = ['status' => 200, 'msg' => 'Data di datapatkan', 'draw' => $post, 'recordsTotal' => $this->user->count_all($post), 'recordsFiltered' => $this->user->count_filtered($post), 'data' => $data];
-        // $this->response($response, $status);
-        echo json_encode($response);
-
+        $data['title']= 'halaman nilai';
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/v_data_nilai');
+        $this->load->view('admin/footer');      
     }
-
-    public function getDataBerita()
+    public function v_data_nilai_siswa(Type $var = null)
     {
-        $data = $this->model->getDataBerita();
-        echo json_encode($data);
+        $data['title']= 'halaman nilai';
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/v_data_nilai_siswa');
+        $this->load->view('admin/footer');      
     }
+    
 }
+
 
 ?>
