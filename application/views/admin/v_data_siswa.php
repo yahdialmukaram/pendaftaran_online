@@ -55,7 +55,6 @@
 									<th>Jenis Kelamin</th>
 									<th>Opsi</th>
 									</th>
-
 								</tr>
 							</thead>
 							<tbody>
