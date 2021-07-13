@@ -120,10 +120,10 @@
 					<tbody>
 						<tr>
 							<td>
-								<input type="text" name="" id="pendaftaran" value="" class="form-control pendaftaran">
+								<input type="text" name="no_registrasi" id="pendaftaran" value="" class="form-control pendaftaran">
 							</td>
 							<td>
-								<input type="text" name="" id="name" value="" class="form-control name">
+								<input type="text" name="nama" id="name" value="" class="form-control name">
 							</td>
 							<td>
 								<input type="number" name="qiroah" onchange="count()" id="qiroah" value="0"

@@ -65,6 +65,7 @@
                   <li><a><i class="fa fa-edit"></i> Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url('controller/v_data_siswa');?>">Data Siswa</a></li>
+                      <li><a href="<?=base_url('controller/v_data_pendaftaran');?>">Data Pendaftaran</a></li>
                       <li><a href="<?=base_url('controller/v_data_nilai_siswa');?>">Data Nilai Siswa</a></li>
                 
                     </ul>

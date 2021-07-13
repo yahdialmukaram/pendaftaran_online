@@ -23,6 +23,17 @@ class Model extends CI_Model {
         $this->db->delete('table_siswa');
     }
 
+    public function get_pendaftaran_siswa()
+    {
+        $this->db->select('*');
+        $this->db->from('table_sekolah');
+        $this->db->order_by('id_sekolah', 'desc');
+        $this->db->join('table_siswa', 'table_sekolah.id_user = table_siswa.id_user', 'left');
+        // $this->db->where('table_sekolah.id_user',$this->session->userdata('id_user'));
+    
+        return $this->db->get()->result_array();        
+    }
+
     public function add_admin($data)
     {
         $this->db->insert('table_user', $data);
@@ -67,6 +78,15 @@ class Model extends CI_Model {
         return $this->db->get()->row_array();
         
     }
+    public function ambil_nama($id)
+    {
+        // $this->db->select('id_siswa');
+        $this->db->from('table_siswa');
+        $this->db->where('id_siswa', $id);
+        $this->db->limit(1);
+        return $this->db->get()->row_array();
+        
+    }
         
     public function check_user($id_user)
     {
@@ -104,6 +124,8 @@ class Model extends CI_Model {
         $this->db->insert($table, $object);
         
     }
+
+  
 }
     
   

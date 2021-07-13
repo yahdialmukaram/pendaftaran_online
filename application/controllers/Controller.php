@@ -118,16 +118,25 @@ class Controller extends CI_Controller {
         $this->load->view('admin/v_data_nilai_siswa', $data);
         $this->load->view('admin/footer');      
     }
+    public function v_data_pendaftaran(Type $var = null)
+    {
+        $data['title']= 'data pendaftaran';
+        $data['pendaftaran']= $this->model->get_pendaftaran_siswa();
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/v_data_pendaftaran', $data);
+        $this->load->view('admin/footer');      
+    }
     public function save_nilai(Type $var = null)
     {   
-                
+        
         $data = [
-            'id_user'=>  $this->session->userdata('id_user'),
+            // 'id_user'=>  $this->session->userdata('id_user'),
+            // 'no_registrasi'=>$this->input->post('no_registrasi'),
+            // 'nama'=>$this->input->post('nama'),
             'qiroah'=>$this->input->post('qiroah'),
             'wawancara_ortu'=>$this->input->post('wawancara_ortu'),
             'paquyuban'=>$this->input->post('paquyuban'),
             'nilai_akhir'=>$this->input->post('nilai_akhir')
-            
         ];
         // echo json_encode($data);
         $this->model->save_nilai('table_nilai', $data);
