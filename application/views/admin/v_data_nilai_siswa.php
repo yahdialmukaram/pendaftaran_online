@@ -30,6 +30,7 @@
                       <thead>
                         <tr>
                           <th style="width: 1%;">No</th>
+                          <th>No Registrasi</th>
                           <th>Nama Siswa</th>
                           <th>Tes Qiroah</th>
                           <th>Wawancara Ortu</th>
@@ -41,16 +42,20 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?= $no =1 ;
+                        foreach ($nilai as $key => $value):?>
                      <tr>
+                       <td><?= $no++?></td>
                        <td></td>
                        <td></td>
+                       <td><?= $value['qiroah']?></td>
+                       <td><?= $value['wawancara_ortu']?></td>
+                       <td><?= $value['paquyuban']?></td>
+                       <td><?= $value['nilai_akhir']?></td>
                        <td></td>
-                       <td></td>
-                       <td></td>
-                       <td></td>
-                       <td></td>
-                     </tr>
-                      </tbody>
+                      </tr>
+                    </tbody>
+                      <?php endforeach; ?>
                     </table>
                   </div>
                 </div>

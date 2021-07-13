@@ -67,6 +67,7 @@ class Model extends CI_Model {
         return $this->db->get()->row_array();
         
     }
+        
     public function check_user($id_user)
     {
         $this->db->select('id_user');
@@ -88,6 +89,19 @@ class Model extends CI_Model {
         $this->db->from('table_jadwal');
         $this->db->order_by('id_jadwal', 'asc');
         return $this->db->get()->result_array();
+        
+    }
+    public function get_nilai(Type $var = null)
+    {
+        $this->db->from('table_nilai');
+        $this->db->order_by('id_nilai', 'desc');
+        return $this->db->get()->result_array();
+        
+        
+    }
+    public function save_nilai($table, $object)
+    {
+        $this->db->insert($table, $object);
         
     }
 }

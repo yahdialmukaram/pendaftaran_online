@@ -106,6 +106,7 @@
 				</button>
 			</div>
 			<div class="modal-body">
+			<form id="save_nilai" action="<?=base_url();?>controller/save_nilai" method="POST" enctype="multipart/form-data">
 				<table id="nilai" class="table table-striped table-bordered">
 					<thead>
 						<tr>
@@ -149,26 +150,50 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save</button>
+				<button type="button" class="btn btn-primary simpan">Save</button>
 			</div>
+		</form>
 		</div>
 	</div>
 </div>
+
+<!-- modal konfirmasi -->
+<div class="modal fade" id="konfirmasi_save" tabindex="-1" role="dialog"
+aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal-dialog modal-sm" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title">Konfirmasi Simpan<button type="button" class="close"
+					data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button></h5>
+
+		</div>
+		<div class="modal-body">
+			Yakin Akan akan menyimpan data ?
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+			<button type="button" class="btn btn-primary konfirmasi">Ya</button>
+		</div>
+	</div>
+</div>
+</div>
+<!-- /page content -->
 <!-- end nilai -->
 <script>
 	$(".beri-nilai").click(function (e) {
 		e.preventDefault();
 		let name = $(this).data('name');
 		let pendaftaran = $(this).data('pendaftaran');
-		// let nomor=$(this).data('nomor');
 		$("#pendaftaran").val(pendaftaran);
 		$(".pendaftaran").attr('readonly', true);
-		// $(".pendaftaran").val(nomor);
 		$("#name").val(name);
 		$(".name").attr('readonly', true);
 		$("#data_nilai").modal("show");
 	});
 
+	// penjumlahan menggunakan js
 	function count() {
 		let qiroah = $("#qiroah").val();
 		let wawancara = $("#wawancara").val();
@@ -178,6 +203,16 @@
 		$("#nilaiakhir").val(nilaiAkhir);
 
 	}
+
+	// sjquery save nilai 
+	$('.simpan').click(function(e) {
+		$('#konfirmasi_save').modal('show');
+		
+	});
+	$('.konfirmasi').click(function(e) {
+		$('#save_nilai').submit();
+	});
+	// end save nilai
 
 </script>
 

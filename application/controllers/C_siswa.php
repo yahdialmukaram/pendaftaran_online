@@ -171,7 +171,7 @@ class C_siswa extends CI_Controller {
         $id_user =    $this->session->userdata('id_user');
         $check_id_user=$this->model->check_user($id_user);
         if ($check_id_user>0) {
-        $this->session->set_flashdata('error', 'Maaf data yang anda masukan sudah terdaftar');
+        $this->session->set_flashdata('error', 'Anda Hanya Bisa Mendaftar 1 Sekolah Yang Anda Minati Terimakasih !!');
 
         redirect('c_siswa/dashboard');    
     }

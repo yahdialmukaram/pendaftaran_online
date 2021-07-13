@@ -103,19 +103,38 @@ class Controller extends CI_Controller {
         
         redirect('controller/v_data_user');
     }
-    public function v_data_nilai(Type $var = null)
-    {
-        $data['title']= 'halaman nilai';
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/v_data_nilai');
-        $this->load->view('admin/footer');      
-    }
+    // public function v_data_nilai(Type $var = null)
+    // {
+    //     $data['title']= 'halaman nilai';
+    //     $this->load->view('admin/header', $data);
+    //     $this->load->view('admin/v_data_nilai');
+    //     $this->load->view('admin/footer');      
+    // }
     public function v_data_nilai_siswa(Type $var = null)
     {
         $data['title']= 'halaman nilai';
+        $data['nilai']= $this->model->get_nilai();
         $this->load->view('admin/header', $data);
-        $this->load->view('admin/v_data_nilai_siswa');
+        $this->load->view('admin/v_data_nilai_siswa', $data);
         $this->load->view('admin/footer');      
+    }
+    public function save_nilai(Type $var = null)
+    {   
+                
+        $data = [
+            'id_user'=>  $this->session->userdata('id_user'),
+            'qiroah'=>$this->input->post('qiroah'),
+            'wawancara_ortu'=>$this->input->post('wawancara_ortu'),
+            'paquyuban'=>$this->input->post('paquyuban'),
+            'nilai_akhir'=>$this->input->post('nilai_akhir')
+            
+        ];
+        // echo json_encode($data);
+        $this->model->save_nilai('table_nilai', $data);
+        $this->session->set_flashdata('success', 'data nilai success di input');
+        
+        redirect('controller/v_data_siswa');
+        
     }
     
 }
