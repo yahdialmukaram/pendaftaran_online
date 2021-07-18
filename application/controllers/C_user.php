@@ -108,7 +108,7 @@ class C_user extends CI_Controller {
             'message'=>htmlspecialchars($this->input->post('message', true))
         ];
         $this->model_user->save_saran('table_saran',$insert);
-        $this->session->set_flashdata('success', 'saran berhasil di kirim');
+        $this->session->set_flashdata('success', 'Saran anda berhasil di kirim');
         
         redirect('c_user/contact');
      

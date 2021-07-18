@@ -103,13 +103,7 @@ class Controller extends CI_Controller {
         
         redirect('controller/v_data_user');
     }
-    // public function v_data_nilai(Type $var = null)
-    // {
-    //     $data['title']= 'halaman nilai';
-    //     $this->load->view('admin/header', $data);
-    //     $this->load->view('admin/v_data_nilai');
-    //     $this->load->view('admin/footer');      
-    // }
+
     public function v_data_nilai_siswa(Type $var = null)
     {
         $data['title']= 'halaman nilai';
@@ -148,6 +142,26 @@ class Controller extends CI_Controller {
         $this->session->set_flashdata('success', 'data nilai success di input');
         
         redirect('controller/v_data_pendaftaran');
+        
+    }
+
+    public function v_saran()
+    {
+        $data['title'] = 'data kritik $ saran';
+        $data['saran'] =$this->model->get_saran();
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/v_saran');
+        $this->load->view('admin/footer');
+        
+    }
+    public function delete_saran(Type $var = null)
+    {
+        $id = $this->input->post('id');
+        $this->model->delete_saran($id);
+        $this->session->set_flashdata('error', 'Data Saran Success Di Delete');
+        
+        redirect('controller/v_saran');
+        
         
     }
     

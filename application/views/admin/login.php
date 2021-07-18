@@ -61,9 +61,9 @@
 						<div class="clearfix"></div>
 
 						<div class="separator">
-							<!-- <p class="change_link">New to site? -->
+								<a href="<?=base_url('c_user')?>">Halaman Utama</a>
 							<a href="#signup" class="to_register">Registrasi / Buat Account </a>
-							</p>
+
 
 							<div class="clearfix"></div>
 							<br />

@@ -56,7 +56,6 @@
                         <tr>
                           <th style="width: 1%;">No</th>
                           <th>Username</th>
-                          <!-- <th style="width: 11%;">Edit Password</th> -->
                           <th>Email</th>
                           <th style="width: 13%;">Waktu</th>
                           <th>Level</th>
@@ -71,10 +70,6 @@
                         <tr>
                           <td><?=$no++?></td>
                           <td><?=$value['username'];?></td>
-                          <!-- <td style="text-align: center;">
-                          <a href="<?php echo base_url(); ?>controller/edit_password/<?=$value['id_user']?>"
-                              class="btn btn-success btn-xs"> <i class="fa fa-edit"></i> Edit</a>
-                          </td> -->
                           <td><?=$value['email'];?></td>
                           <td><?=$value['waktu'];?></td>
                           <td><?=$value['level'];?></td>

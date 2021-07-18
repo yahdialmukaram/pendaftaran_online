@@ -32,7 +32,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Qurrata A'yun</span></a>
+              <a href="<?=base_url('controller')?>" class="site_title"><i class="fa fa-paw"></i> <span>Qurrata A'yun</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -62,7 +62,7 @@
                   <li><a href="<?=base_url();?>controller/v_data_user"><i class="fa fa-user"></i> Data User</a>
                   
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Data <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> Master Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url('controller/v_data_siswa');?>">Data Siswa</a></li>
                       <li><a href="<?=base_url('controller/v_data_pendaftaran');?>">Data Pendaftaran</a></li>
@@ -71,11 +71,17 @@
                     </ul>
                   <li><a href="<?=base_url();?>controller/v_jadwal"><i class="fa fa-clock-o"></i> Jadwal Ujian</a>
                   </li>
-                  <li><a href="<?= base_url();?>c_login"><i class="fa fa-power-off"></i> Logout</a>
-              
-              
-              
-                </ul>
+
+                  <div class="menu_section">
+                 <h3>Live On</h3>
+               
+               </div>
+                  <li><a href="<?= base_url();?>controller/v_saran"><i class="fa fa-envelope-o"></i> Kritik & Saran</a></li>
+                  <li><a href="<?= base_url();?>c_login"><i class="fa fa-power-off"></i> Logout</a></li>
+                 </ul>
+
+
+            </div>
               </div>
     
 

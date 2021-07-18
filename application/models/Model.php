@@ -134,6 +134,18 @@ class Model extends CI_Model {
         $this->db->where('id_user', $id_user);
         return $this->db->get()->num_rows();
         
+    }
+    public function get_saran(Type $var = null)
+    {
+        $this->db->from('table_saran');
+        $this->db->order_by('id_saran', 'desc');
+      return  $this->db->get()->result_array();
+        
+    }
+    public function delete_saran($id)
+    {
+        $this->db->where('id_saran', $id);
+        $this->db->delete('table_saran');
         
     }
 
