@@ -71,7 +71,7 @@
 									<td><?=$value['jenis_kelamin'];?></td>
 									<td>
 										<a href="#" class="btn btn-primary btn-sm beri-nilai"
-											data-name="<?=$value['nama']?>" data-pendaftaran="<?=$value['no_registrasi']?>"> <i class="fa fa-plus"></i>
+											data-name="<?=$value['nama']?>" data-id="<?=$value['id_user']?>" data-pendaftaran="<?=$value['no_registrasi']?>"> <i class="fa fa-plus"></i>
 											Entri Nilai Siswa</a>
 
 										<a href="<?php echo base_url(); ?>controller/v_details_siswa/<?=$value['id_siswa'];?>"
@@ -106,6 +106,7 @@
 			</div>
 			<div class="modal-body">
 			<form id="save_nilai" action="<?=base_url();?>controller/save_nilai" method="POST" enctype="multipart/form-data">
+				<input type="text" name="id" id="id_disini" >
 				<table id="nilai" class="table table-striped table-bordered">
 					<thead>
 						<tr>
@@ -120,10 +121,10 @@
 					<tbody>
 						<tr>
 							<td>
-								<input type="text" name="no_registrasi" id="pendaftaran" value="" class="form-control pendaftaran">
+								<input type="text" id="pendaftaran" value="" class="form-control pendaftaran">
 							</td>
 							<td>
-								<input type="text" name="nama" id="name" value="" class="form-control name">
+								<input type="text" id="name" value="" class="form-control name">
 							</td>
 							<td>
 								<input type="number" name="qiroah" onchange="count()" id="qiroah" value="0"
@@ -184,7 +185,10 @@ aria-labelledby="modelTitleId" aria-hidden="true">
 	$(".beri-nilai").click(function (e) {
 		e.preventDefault();
 		let name = $(this).data('name');
+		let id_user=$(this).data('id');
 		let pendaftaran = $(this).data('pendaftaran');
+		$("#id_disini").val(id_user);
+		$("#id_disini").attr("hidden",true);
 		$("#pendaftaran").val(pendaftaran);
 		$(".pendaftaran").attr('readonly', true);
 		$("#name").val(name);

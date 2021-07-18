@@ -128,11 +128,16 @@ class Controller extends CI_Controller {
     }
     public function save_nilai(Type $var = null)
     {   
-        
+        $id_user = $this->input->post('id');
+        $check_id_user = $this->model->check_id_user($id_user);
+        if ($check_id_user > 0) {
+            $this->session->set_flashdata('error', 'Data Nilai Siswa Sudah di Input');
+            redirect('controller/v_data_siswa');
+        }
+
+
         $data = [
-            // 'id_user'=>  $this->session->userdata('id_user'),
-            // 'no_registrasi'=>$this->input->post('no_registrasi'),
-            // 'nama'=>$this->input->post('nama'),
+            'id_user'=>  $this->input->post('id'),
             'qiroah'=>$this->input->post('qiroah'),
             'wawancara_ortu'=>$this->input->post('wawancara_ortu'),
             'paquyuban'=>$this->input->post('paquyuban'),

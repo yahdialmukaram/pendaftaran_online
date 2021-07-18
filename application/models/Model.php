@@ -114,7 +114,9 @@ class Model extends CI_Model {
     public function get_nilai(Type $var = null)
     {
         $this->db->from('table_nilai');
-        $this->db->order_by('id_nilai', 'desc');
+        $this->db->order_by('nilai_akhir', 'desc');
+        $this->db->join('table_siswa', 'table_siswa.id_user = table_nilai.id_user', 'left');  
+         
         return $this->db->get()->result_array();
         
         
@@ -122,6 +124,16 @@ class Model extends CI_Model {
     public function save_nilai($table, $object)
     {
         $this->db->insert($table, $object);
+        
+    }
+
+    public function check_id_user($id_user)
+    {
+        $this->db->select('id_user');
+        $this->db->from('table_nilai');
+        $this->db->where('id_user', $id_user);
+        return $this->db->get()->num_rows();
+        
         
     }
 
