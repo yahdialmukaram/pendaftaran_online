@@ -70,12 +70,12 @@
 									<td><?=$value['tanggal_lahir'];?></td>
 									<td><?=$value['jenis_kelamin'];?></td>
 									<td>
-										<a href="#" class="btn btn-primary btn-sm beri-nilai"
+										<!-- <a href="#" class="btn btn-primary btn-sm beri-nilai"
 											data-name="<?=$value['nama']?>" data-id="<?=$value['id_user']?>" data-pendaftaran="<?=$value['no_registrasi']?>"> <i class="fa fa-plus"></i>
-											Entri Nilai Siswa</a>
+											Entri Nilai Siswa</a> -->
 
 										<a href="<?php echo base_url(); ?>controller/v_details_siswa/<?=$value['id_siswa'];?>"
-											class="btn btn-success btn-sm"> <i class="fa fa-search-plus"></i>
+											class="btn btn-success btn-xs"> <i class="fa fa-search-plus"></i>
 											Details Siswa</a>
 									</td>
 								</tr>
@@ -93,131 +93,7 @@
 
 
 <!-- Modal  nilai-->
-<div class="modal fade" id="data_nilai" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-	<div class="modal-dialog modal-lg " role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<!-- <h5 style="text-align: center;" class="modal-title">Data Nilai</h5> -->
-				<h5 style="text-align: center;"><b>INPUT NILAI SISWA</b></h5>
 
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-			<form id="save_nilai" action="<?=base_url();?>controller/save_nilai" method="POST" enctype="multipart/form-data">
-				<input type="text" name="id" id="id_disini" >
-				<table id="nilai" class="table table-striped table-bordered">
-					<thead>
-						<tr>
-							<th style="width: 15%; text-align: center;">No Pendaftaran</th>
-							<th style="width: 25%;text-align: center;">Nama Calon Siswa</th>
-							<th style="width: 10%;text-align: center;">Tes Qiroah</th>
-							<th style="width: 10%;text-align: center;">Wawancara Ortu</th>
-							<th style="width: 10%;text-align: center;">Paquyuban</th>
-							<th style="width: 10%;text-align: center;">Nilai Akhir</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<input type="text" id="pendaftaran" value="" class="form-control pendaftaran">
-							</td>
-							<td>
-								<input type="text" id="name" value="" class="form-control name">
-							</td>
-							<td>
-								<input type="number" name="qiroah" onchange="count()" id="qiroah" value="0"
-									class="form-control">
-							</td>
-							<td>
-								<input type="number" name="wawancara_ortu" onchange="count()" id="wawancara" value="0"
-									class="form-control">
-							</td>
-							<td>
-								<input type="number" name="paquyuban" onchange="count()" id="paquyuban" value="0"
-									class="form-control">
-							</td>
-							<td>
-								<input type="number" name="nilai_akhir" readonly id="nilaiakhir" value="0"
-									class="form-control">
-							</td>
-
-						</tr>
-
-					</tbody>
-				</table>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary simpan">Save</button>
-			</div>
-		</form>
-		</div>
-	</div>
-</div>
-
-<!-- modal konfirmasi -->
-<div class="modal fade" id="konfirmasi_save" tabindex="-1" role="dialog"
-aria-labelledby="modelTitleId" aria-hidden="true">
-<div class="modal-dialog modal-sm" role="document">
-	<div class="modal-content">
-		<div class="modal-header">
-			<h5 class="modal-title">Konfirmasi Simpan<button type="button" class="close"
-					data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button></h5>
-
-		</div>
-		<div class="modal-body">
-			Yakin Akan akan menyimpan data ?
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-			<button type="button" class="btn btn-primary konfirmasi">Ya</button>
-		</div>
-	</div>
-</div>
-</div>
-<!-- /page content -->
-<!-- end nilai -->
-<script>
-	$(".beri-nilai").click(function (e) {
-		e.preventDefault();
-		let name = $(this).data('name');
-		let id_user=$(this).data('id');
-		let pendaftaran = $(this).data('pendaftaran');
-		$("#id_disini").val(id_user);
-		$("#id_disini").attr("hidden",true);
-		$("#pendaftaran").val(pendaftaran);
-		$(".pendaftaran").attr('readonly', true);
-		$("#name").val(name);
-		$(".name").attr('readonly', true);
-		$("#data_nilai").modal("show");
-	});
-
-	// penjumlahan menggunakan js
-	function count() {
-		let qiroah = $("#qiroah").val();
-		let wawancara = $("#wawancara").val();
-		let paquyuban = $("#paquyuban").val();
-		let nilaiAkhir;
-		nilaiAkhir = (parseInt(qiroah) + parseInt(wawancara) + parseInt(paquyuban)) / 3;
-		$("#nilaiakhir").val(nilaiAkhir);
-
-	}
-
-	// sjquery save nilai 
-	$('.simpan').click(function(e) {
-		$('#konfirmasi_save').modal('show');
-		
-	});
-	$('.konfirmasi').click(function(e) {
-		$('#save_nilai').submit();
-	});
-	// end save nilai
-
-</script>
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

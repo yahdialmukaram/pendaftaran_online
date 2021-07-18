@@ -187,7 +187,7 @@ class C_siswa extends CI_Controller {
         ];
         // logik ambil jadwal
         $check_kuata=$this->model->check_kuata();
-        if ($check_kuata!==null) {
+        if ($check_kuata!==[]) {
             foreach ($check_kuata as $key => $value) {
                 if ($value['kouta']>$value['kouta_terisi']) {
                     $result[]=[
@@ -196,7 +196,7 @@ class C_siswa extends CI_Controller {
                     ];
                 }
             }
-        }
+            // echo json_encode($check_kuata);
         $data =[
             'id_user' => $this->session->userdata('id_user'),
             'nama_sekolah'=>$this->input->post('nama_sekolah'),
@@ -204,7 +204,6 @@ class C_siswa extends CI_Controller {
             'sk_domisili'=>$image1['data'],
             'id_jadwal'=>$result[0]['id_jadwal'],
         ];
-        
         $check_number = $this->model->check_number($id_user);
         $list_jadwal=$this->model->ambil_jadwal($result[0]['id_jadwal']);
         $this->model->update_jadwal($result[0]['id_jadwal'],['kouta_terisi'=>$list_jadwal['kouta_terisi']+1]);
@@ -218,6 +217,11 @@ class C_siswa extends CI_Controller {
         
         redirect('c_siswa/dashboard');
 
+        } else {
+            $this->session->set_flashdata('error', 'Jadwal Tidak Tersedia');
+            redirect('c_siswa/dashboard');
+        } 
+        
         }else {
             $this->session->set_flashdata('error', 'type file upload anda salah');
             

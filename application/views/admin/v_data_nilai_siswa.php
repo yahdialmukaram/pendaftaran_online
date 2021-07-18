@@ -38,6 +38,7 @@
 									<th>Nilai Akhir</th>
 									<th>Rangking</th>
 									<th>Status</th>
+									<th>Verifikasi</th>
 									</th>
 
 								</tr>
@@ -62,13 +63,14 @@
 										<?php endif; ?>
 									</td>
 									<td>
-                    <?php if ($peringkat>=$newNumber):?>
-                    <label for="" class="label label-success">Lulus</label>
-                    <?php elseif ($peringkat<=$newNumber) :?>
-                    <label for="" class="label label-danger">tidak Lulus</label>
-                    <?php endif;?>
-                    <a href="#" class="label label-primary">Send SMS</a>
-                  </td>
+										<?php if ($peringkat>=$newNumber):?>
+										<label for="" class="label label-success">Lulus</label>
+										<?php elseif ($peringkat<=$newNumber) :?>
+										<label for="" class="label label-danger">Tidak Lulus</label>
+										<?php endif;?>
+									</td>
+
+									<td> <a href="#" class="label label-primary">Send SMS</a></td>
 								</tr>
 							</tbody>
 							<?php endforeach; ?>
@@ -96,7 +98,8 @@
 					<div class="form-group">
 						<label class="control-label col-md-12 col-sm-3 col-xs-12">Username</label>
 						<div class="col-md-12 col-sm-12 col-xs-12">
-							<input type="text" name="username" class="form-control" required placeholder="masukan username">
+							<input type="text" name="username" class="form-control" required
+								placeholder="masukan username">
 							<small>
 								<font color="red">username wajib isi</font>
 							</small>
@@ -115,7 +118,8 @@
 					<div class="form-group">
 						<label class="control-label col-md-12 col-sm-3 col-xs-12">Password</label>
 						<div class="col-md-12 col-sm-12 col-xs-12">
-							<input type="password" name="password" class="form-control" required placeholder="masukan password">
+							<input type="password" name="password" class="form-control" required
+								placeholder="masukan password">
 							<small>
 								<font color="red">password wajib isi</font>
 							</small>

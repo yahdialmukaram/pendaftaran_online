@@ -132,7 +132,7 @@ class Controller extends CI_Controller {
         $check_id_user = $this->model->check_id_user($id_user);
         if ($check_id_user > 0) {
             $this->session->set_flashdata('error', 'Data Nilai Siswa Sudah di Input');
-            redirect('controller/v_data_siswa');
+            redirect('controller/v_data_pendaftaran');
         }
 
 
@@ -147,7 +147,7 @@ class Controller extends CI_Controller {
         $this->model->save_nilai('table_nilai', $data);
         $this->session->set_flashdata('success', 'data nilai success di input');
         
-        redirect('controller/v_data_siswa');
+        redirect('controller/v_data_pendaftaran');
         
     }
     
