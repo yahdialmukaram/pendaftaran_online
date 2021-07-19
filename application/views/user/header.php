@@ -60,7 +60,8 @@
 	        	<!-- <li class="nav-item"><a href="<?=base_url();?>c_user/teacher" class="nav-link">Guru</a></li> -->
 	        	<!-- <li class="nav-item"><a href="courses.html" class="nav-link">Courses</a></li> -->
 	        	<!-- <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li> -->
-	        	<!-- <li class="nav-item"><a href="<?=base_url();?>c_user/blog" class="nav-link">Blog</a></li> -->
+	        	<li class="nav-item"><a href="<?=base_url();?>c_user" class="nav-link">Blog</a></li>
+	        	<!-- <li class="nav-item"><a href="<?=base_url();?>c_user/gallery" class="nav-link">Gallery</a></li> -->
 	          <li class="nav-item"><a href="<?=base_url();?>c_user/contact" class="nav-link">Contact</a></li>
 	             <li class="nav-item"><a href="<?=base_url();?>c_login" class="nav-link">Login/Registrasi</a></li>
 	        </ul>

@@ -22,6 +22,10 @@ class Controller extends CI_Controller {
     public function index()
     {
         $data['title']= 'beranda';
+        $data ['data_user'] = $this->model->find_data_user();
+        $data ['data_siswa'] = $this->model->find_data_siswa();
+        $data ['laki_laki'] = $this->model->find_data('table_siswa','jenis_kelamin','laki laki');
+        $data ['perempuan'] = $this->model->find_data('table_siswa','jenis_kelamin','perempuan');
         $this->load->view('admin/header', $data);
         $this->load->view('admin/dashboard');
         $this->load->view('admin/footer');
@@ -29,6 +33,7 @@ class Controller extends CI_Controller {
     public function v_data_user()
     {
         $data['title']= 'halaman user';
+
         $data ['user'] = $this->model->get_user();
         $this->load->view('admin/header', $data);
         $this->load->view('admin/v_data_user', $data);
@@ -111,6 +116,10 @@ class Controller extends CI_Controller {
         $this->load->view('admin/header', $data);
         $this->load->view('admin/v_data_nilai_siswa', $data);
         $this->load->view('admin/footer');      
+    }
+    public function FunctionName(Type $var = null)
+    {
+        # code...
     }
     public function v_data_pendaftaran(Type $var = null)
     {

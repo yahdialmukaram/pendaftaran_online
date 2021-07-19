@@ -148,6 +148,41 @@ class Model extends CI_Model {
         $this->db->delete('table_saran');
         
     }
+    public function count_all($post)
+	{
+		
+		$this->db->from($this->table);
+		return $this->db->count_all_results();
+	}
+
+    public function find_data_user(Type $var = null)
+    {
+        $data_user = $this->db->get('table_user');
+        if ($data_user->num_rows() > 0 ) {
+            return $data_user->num_rows();
+        }else {
+            return 0;
+        }
+        
+    }
+    public function find_data_siswa(Type $var = null)
+    {
+        $data_siswa = $this->db->get('table_siswa');
+        if ($data_siswa->num_rows() > 0 ) {
+            return $data_siswa->num_rows();
+        }else {
+            return 0;
+        }
+        
+    }
+    public function find_data($table, $id_table, $object)
+    {
+        $this->db->where('jenis_kelamin', $object);
+        return $this->db->get($table)->num_rows();
+        
+                
+        
+    }
 
   
 }

@@ -84,13 +84,14 @@ class C_siswa extends CI_Controller {
     public function dashboard()
     {
         $data['title'] = 'pendaftaran';
+        $data ['find_nik'] = $this->model_siswa->find_nik('table_siswa','nisn')->row_array();
 		$data['status_daftar']=$this->model_siswa->find_data('table_sekolah','id_user',$this->session->userdata('id_user'))->row_array()['id_user'];
-        // $id = $this->input->post('id_user');	
+        
 		
 		// use for register date
 		
 		$t      =time();
-		$day    =20;   
+		$day    =10;   
 		$month  =7;
 		$year   =2021;
 		$days   =(int)((mktime (0,0,0,$month,$day,$year) - time())/86400);
@@ -110,6 +111,7 @@ class C_siswa extends CI_Controller {
         } else {
 			$data['state_register']=false;
 		}
+        // $data['nilai']= $this->model->get_nilai();
         $this->load->view('siswa/header',$data);
         $this->load->view('siswa/dashboard', $data);
         $this->load->view('siswa/footer');   
@@ -168,6 +170,7 @@ class C_siswa extends CI_Controller {
 
     public function save_pendaftaran()
     {
+        
         $id_user =    $this->session->userdata('id_user');
         $check_id_user=$this->model->check_user($id_user);
         if ($check_id_user>0) {

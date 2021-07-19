@@ -65,6 +65,13 @@ class Model_siswa extends CI_Model {
         $this->db->where($referency, $id);
         return $this->db->get();
         
+    }
+    public function find_nik($table, $referency)
+    {
+        $this->db->from($table);
+        $this->db->where('id_user', $this->session->userdata('id_user'));
+        
+        return $this->db->get();
         
         
     }

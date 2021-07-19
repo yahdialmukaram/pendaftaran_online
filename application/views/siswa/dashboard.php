@@ -15,6 +15,7 @@
 		<div class="alert alert-warning alert-dismissible">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			<marquee><h5> -- Selamat datang di SDIT Qurrata A'yun Kabupaten Tanah Datar --  </h5></marquee>
+			
 			<h4 style="text-align: center;"><b> PILIH SEKOLAH TUJUAN</h4></b>
 			<h5 style="text-align: center;"><b>Silahkan pilih sekolah dibawah ini sesuai syarat dan ketentuan dengan
 				meng klik link di bawah yang telah di tentukan</b></h5>
@@ -58,6 +59,10 @@
 				Maaf pendaftaran sudah tutup pada tanggal<?=$date_close['day']?>/<?=$date_close['month']?>/<?=$date_close['year']?>
 			</div>
 			<?php endif; ?>
+			
+
+
+
 	
 			</div>
 		  </div>
@@ -69,6 +74,8 @@
 		<h1 style="text-align: center;"> <img style="border-radius: 200px;" src="<?=base_url();?>images/admin.png"></h1>
 		<!-- <h5 style="text-align: center;">Nisn <?= $this->session->userdata('username');?>: <?= $data_nik['nik']?></h5> -->
 		<!-- <h5 style="text-align: center;">  </h5> -->
+		<h5 style="text-align: center;">Nisn <?= $this->session->userdata('username');?>: <?= $find_nik['nik']?></h5>
+
 		<br>
 	</div>
 	<h5 style="text-align: center;">Pilih Sekolah Tujuan </h5>
@@ -87,7 +94,7 @@
                   <h5 style="text-align: center;">SDIT Qurrata A'yun</i>
 				  <br>
 				  <br>
-				  <a href="<?=base_url('c_siswa/v_sdit1');?>" class="btn btn-success btn-sm">Klik di sini </a>
+				  <a href="<?=base_url('c_siswa/v_sdit1');?>" class="btn btn-success btn-sm sembunyi">Klik di sini </a>
                   </h5>
                 </div>
               </div>
@@ -98,7 +105,7 @@
                   <h5 style="text-align: center;">SDIT Qurrata A'yun 2 Lintau</i>
 				  <br>
 				  <br>
-				  <a href="<?=base_url('c_siswa/v_sdit2');?>" class="btn btn-success btn-sm">Klik di sini </a>
+				  <a href="<?=base_url('c_siswa/v_sdit2');?>" class="btn btn-success btn-sm sembunyi">Klik di sini </a>
                   </h5>
                 </div>
               </div>
@@ -110,10 +117,11 @@
                   <h5 style="text-align: center;">SDIT Qurrata A'yun 3 Batusangkar</i>
 				  <br>
 				  <br>
-				  <a href="<?=base_url('c_siswa/v_sdit3');?>" class="btn btn-success btn-sm">Klik di sini </a>
+				  <a href="<?=base_url('c_siswa/v_sdit3');?>" class="btn btn-success btn-sm sembunyi">Klik di sini </a>
                   </h5>
                 </div>
               </div>
+
 				<!-- ./col -->
 				<div class="col-lg-3 col-6">
 				</div>
@@ -161,14 +169,8 @@
 	</div>
 </div>
 
-<script>
 
-	function persaratan(){
-	$("#persaratan").modal("show")
-	}
-
-</script>    
-
+<!-- 	
 	</div>
-        </div>
+        </div> -->
         <!-- /page content -->
