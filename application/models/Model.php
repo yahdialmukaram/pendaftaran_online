@@ -22,6 +22,16 @@ class Model extends CI_Model {
         $this->db->where('id_user', $id);
         $this->db->delete('table_siswa');
     }
+    public function delete_nilai($id)
+    {
+        $this->db->where('id_user', $id);
+        $this->db->delete('table_nilai');
+    }
+    public function delete_pendaftaran($id)
+    {
+        $this->db->where('id_user', $id);
+        $this->db->delete('table_sekolah');
+    }
 
     public function get_pendaftaran_siswa()
     {

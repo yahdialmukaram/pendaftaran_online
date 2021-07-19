@@ -8,7 +8,7 @@
                 <div class="tile-stats">
                   <div class="icon"><i class="fa fa-user"></i></div>
                   <div class="count"><?=$data_user?></div>
-                  <h3>Data User</h3>
+                  <h3>Data Pengguna</h3>
                
                 </div>
               </div>

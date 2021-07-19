@@ -104,6 +104,8 @@ class Controller extends CI_Controller {
         $id = $this->input->post('id');
         $this->model->delete_admin($id);
         $this->model->delete_user($id);
+        $this->model->delete_nilai($id);
+        $this->model->delete_pendaftaran($id);
         $this->session->set_flashdata('error', 'data user telah di hapus');
         
         redirect('controller/v_data_user');

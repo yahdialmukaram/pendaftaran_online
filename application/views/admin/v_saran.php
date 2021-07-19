@@ -88,7 +88,7 @@
 				<h5 class="modal-title">Konfirmasi Hapus</h5>
 					
 			</div>
-			<div class="modal-body">Yakin Akan Hapus Data User ?
+			<div class="modal-body">Yakin Akan Hapus Saran ?
 				<input type="hidden" name="id" id="id">
 			</div>
 			<div class="modal-footer">
