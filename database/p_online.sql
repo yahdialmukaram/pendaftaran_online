@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 11, 2021 at 07:00 AM
+-- Generation Time: Jul 18, 2021 at 07:00 PM
 -- Server version: 5.7.24
--- PHP Version: 7.3.9
+-- PHP Version: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,10 +40,7 @@ CREATE TABLE `table_jadwal` (
 --
 
 INSERT INTO `table_jadwal` (`id_jadwal`, `jadwal`, `kouta`, `kouta_terisi`) VALUES
-(16, '07/10/2021 2:36 PM sampai 07/10/2021 2:36 PM', '25', '25'),
-(18, '07/10/2021 7:20 PM sampai 07/10/2021 8:20 PM', '66', '2'),
-(19, '07/10/2021 8:21 PM sampai 07/10/2021 9:21 PM', '20', '0'),
-(20, '07/14/2021 10:58 AM sampai 07/11/2021 12:58 PM', '33', '0');
+(21, '07/18/2021 7:36 PM sampai 07/15/2021 7:36 PM', '30', '4');
 
 -- --------------------------------------------------------
 
@@ -54,12 +51,41 @@ INSERT INTO `table_jadwal` (`id_jadwal`, `jadwal`, `kouta`, `kouta_terisi`) VALU
 CREATE TABLE `table_nilai` (
   `id_nilai` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `tes_qiroah` varchar(255) NOT NULL,
+  `qiroah` varchar(255) NOT NULL,
   `wawancara_ortu` varchar(255) NOT NULL,
   `paquyuban` varchar(255) NOT NULL,
-  `nilai_akhir` varchar(255) NOT NULL,
-  `rangking` varchar(255) NOT NULL
+  `nilai_akhir` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_nilai`
+--
+
+INSERT INTO `table_nilai` (`id_nilai`, `id_user`, `qiroah`, `wawancara_ortu`, `paquyuban`, `nilai_akhir`) VALUES
+(17, 22, '0', '0', '0', '0'),
+(18, 21, '40', '55', '44', '46.333333333333336'),
+(19, 24, '33', '23', '33', '29.666666666666668');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_saran`
+--
+
+CREATE TABLE `table_saran` (
+  `id_saran` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `subject` varchar(200) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_saran`
+--
+
+INSERT INTO `table_saran` (`id_saran`, `nama`, `email`, `subject`, `message`) VALUES
+(2, 'yahdi almukaram', 'yahdialmukaram03@gmail.com', 'masalah login', 'ini sngat bagus untuk di kembangkan');
 
 -- --------------------------------------------------------
 
@@ -81,8 +107,9 @@ CREATE TABLE `table_sekolah` (
 --
 
 INSERT INTO `table_sekolah` (`id_sekolah`, `id_user`, `id_jadwal`, `nama_sekolah`, `sk_domisili`, `akta_kelahiran`) VALUES
-(28, '24', '16', 'SDIT Qurrata A\'yun Batusangkar', 'a991fe6b5c5153669584ede1c994d524.pdf', '89ccd6df02c9eb9be3bb62c15bfdee88.pdf'),
-(29, '19', '18', 'SDIT Qurrata A\'yun Batusangkar', 'd11b7599b10e37a02c466db8969cbb44.pdf', '364c79e254e7172d201ac577822e773c.pdf');
+(32, '22', '21', 'SDIT Qurrata A\'yun 2 Lintau', '5f895146445f50da93013122cbb1a1d1.pdf', '2a02ed8f9059bf4731e1b97c0ff25957.pdf'),
+(33, '21', '21', 'SDIT Qurrata A\'yun Batusangkar', 'afb164db37eeb0a0bb630c52e286fec6.pdf', '0ac243fc43dc376d9c6996aea731031c.pdf'),
+(34, '24', '21', 'SDIT Qurrata A\'yun Batusangkar', '1425dbab4f4ab3593e59bac64bd9b6e6.pdf', 'a83236507718b65e2b1cb42cb9c2ca33.pdf');
 
 -- --------------------------------------------------------
 
@@ -183,6 +210,12 @@ ALTER TABLE `table_nilai`
   ADD PRIMARY KEY (`id_nilai`);
 
 --
+-- Indexes for table `table_saran`
+--
+ALTER TABLE `table_saran`
+  ADD PRIMARY KEY (`id_saran`);
+
+--
 -- Indexes for table `table_sekolah`
 --
 ALTER TABLE `table_sekolah`
@@ -208,19 +241,25 @@ ALTER TABLE `table_user`
 -- AUTO_INCREMENT for table `table_jadwal`
 --
 ALTER TABLE `table_jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `table_nilai`
 --
 ALTER TABLE `table_nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `table_saran`
+--
+ALTER TABLE `table_saran`
+  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `table_sekolah`
 --
 ALTER TABLE `table_sekolah`
-  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `table_siswa`
