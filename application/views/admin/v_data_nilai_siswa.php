@@ -24,8 +24,7 @@
                         <div class="clearfix"></div>
                     </div>
 
-                    <a href="<?=base_url();?>cetak/print_data_nilai" target="_blank"
-						class="btn btn-warning btn-sm fa fa-print"> Print Data Nilai</a>
+                    <a href="<?=base_url();?>cetak/print_data_nilai" target="_blank" class="btn btn-warning btn-sm fa fa-print"> Print Data Nilai</a>
                     <div class="x_content">
 
                         <table id="datatable" class="table table-striped table-bordered">
@@ -41,13 +40,13 @@
                                     <th>Rangking</th>
                                     <th>Status</th>
                                     <th>Verifikasi</th>
-                                    </th>
+                                
 
                                 </tr>
                             </thead>
                             <tbody>
 
-                                <?= $no =1 ;$peringkat=3;
+                                <?= $no =1 ;$peringkat=2;
                         foreach ($nilai as $key => $value):?>
 
                                     <tr>
@@ -61,17 +60,17 @@
                                         <td>
                                             <?= $value['nama']?>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <?= $value['qiroah']?>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <?= $value['wawancara_ortu']?>
                                         </td>
-                                        <td>
+                                        <td style="text-align: center;">
                                             <?= $value['paquyuban']?>
                                         </td>
-                                        <td>
-                                            <?= $value['nilai_akhir']?>
+                                        <td style="text-align: center;">
+                                            <?= number_format( $value  ['nilai_akhir'])?>
                                         </td>
                                         <td>
                                             <?php if ($newNumber<=$peringkat):?>
@@ -88,10 +87,10 @@
                                         </td>
 
                                         <td> <a href="#" onclick="send_sms(<?=$value['id_user']?>);" class="label label-primary">Send SMS</a></td>
-										<!-- <td><a href="#" onclick="hapus_admi(<?=$value['id_user']?>);" class="btn btn-danger btn-xs"> <i class="fa fa-trash"> Delete</i> </a></td> -->
+
                                     </tr>
+                                    <?php endforeach; ?>
                             </tbody>
-                            <?php endforeach; ?>
                         </table>
                     </div>
                 </div>
@@ -100,6 +99,7 @@
         </div>
     </div>
 </div>
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -183,9 +183,9 @@
     </div>
 </div>
 <script>
-	function send_sms(id) {
-		$('#id').val(id);
-		$('#konfirmasi_sms').modal('show');
-		
-	}
+    function send_sms(id) {
+        $('#id').val(id);
+        $('#konfirmasi_sms').modal('show');
+
+    }
 </script>
