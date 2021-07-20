@@ -41,7 +41,7 @@
 
 						<table id="datatable" class="table table-striped table-bordered">
 							<thead>
-								<tr>
+								<tr style="background-color: rgb(27, 27, 27);">
 									<th style="width: 1%;">No</th>
 									<th style="width: 15%;">No Pendaftaran</th>
 									<th style="width: 30%;">Nama Siswa</th>
