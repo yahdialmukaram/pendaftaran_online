@@ -131,6 +131,18 @@ class Model extends CI_Model {
         
         
     }
+    public function get_nilai_siswa()
+    {
+        // $this->db->select('nilai_akhir');
+        
+        $this->db->from('table_nilai');
+        $this->db->order_by('nilai_akhir', 'desc');
+        $this->db->where('id_user',$this->session->userdata('id_user'));
+        
+        return $this->db->get()->result_array();
+        
+        
+    }
     public function save_nilai($table, $object)
     {
         $this->db->insert($table, $object);

@@ -86,12 +86,12 @@ class C_siswa extends CI_Controller {
         $data['title'] = 'pendaftaran';
         $data ['find_nik'] = $this->model_siswa->find_nik('table_siswa','nisn')->row_array();
 		$data['status_daftar']=$this->model_siswa->find_data('table_sekolah','id_user',$this->session->userdata('id_user'))->row_array()['id_user'];
-        
+        $data['nilai']= $this->model->get_nilai_siswa('table_nilai','id_user');
 		
 		// use for register date
 		
 		$t      =time();
-		$day    =10;   
+		$day    =28;   
 		$month  =7;
 		$year   =2021;
 		$days   =(int)((mktime (0,0,0,$month,$day,$year) - time())/86400);

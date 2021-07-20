@@ -26,6 +26,17 @@ class Cetak extends CI_Controller {
         $mpdf->WriteHtml($cetak);
         $mpdf->Output();
     }
+    public function print_data_nilai()
+    {
+        $data['title'] = 'Print data nilai siswa';
+        
+        $data ['nilai'] = $this->model->get_nilai(); //manggil data di controller 
+        $mpdf = new Mpdf\Mpdf(['format'=>'Legal']);
+        $mpdf->AddPage('L');
+        $cetak= $this->load->view('admin/v_print_data_nilai',$data, true);
+        $mpdf->WriteHtml($cetak);
+        $mpdf->Output();
+    }
 
 }
 

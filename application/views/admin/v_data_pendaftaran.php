@@ -185,7 +185,7 @@
 		let paquyuban = $("#paquyuban").val();
 		let nilaiAkhir;
 		nilaiAkhir = (parseInt(qiroah) + parseInt(wawancara) + parseInt(paquyuban)) / 3;
-		$("#nilaiakhir").val(nilaiAkhir);
+		$("#nilaiakhir").val (nilaiAkhir);
 
 	}
 

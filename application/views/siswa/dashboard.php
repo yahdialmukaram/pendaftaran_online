@@ -44,7 +44,7 @@
 			<!-- end alert -->
 
 			<?php
-			$t    =time();
+			$t =time();
 			// echo($t . "<br /> Sekarang: ");
 			echo (date("D, d F Y",$t));
 			?>
@@ -59,10 +59,11 @@
 				Maaf pendaftaran sudah tutup pada tanggal<?=$date_close['day']?>/<?=$date_close['month']?>/<?=$date_close['year']?>
 			</div>
 			<?php endif; ?>
-			
 
 
-
+		
+								
+		
 	
 			</div>
 		  </div>
@@ -72,9 +73,8 @@
 	<!-- /.content-header -->
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<h1 style="text-align: center;"> <img style="border-radius: 200px;" src="<?=base_url();?>images/admin.png"></h1>
-		<!-- <h5 style="text-align: center;">Nisn <?= $this->session->userdata('username');?>: <?= $data_nik['nik']?></h5> -->
-		<!-- <h5 style="text-align: center;">  </h5> -->
-		<h5 style="text-align: center;">Nisn <?= $this->session->userdata('username');?>: <?= $find_nik['nik']?></h5>
+	
+		<h5 style="text-align: center;">Nik <?= $this->session->userdata('username');?>: <?= $find_nik['nik']?></h5>
 
 		<br>
 	</div>
