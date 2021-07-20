@@ -24,6 +24,8 @@
                         <div class="clearfix"></div>
                     </div>
 
+                    <a href="<?=base_url();?>cetak/print_data_nilai" target="_blank"
+						class="btn btn-warning btn-sm fa fa-print"> Print Data Nilai</a>
                     <div class="x_content">
 
                         <table id="datatable" class="table table-striped table-bordered">
