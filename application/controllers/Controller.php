@@ -30,6 +30,19 @@ class Controller extends CI_Controller {
         $this->load->view('admin/dashboard');
         $this->load->view('admin/footer');
     }
+    public function diagram(Type $var = null)
+	{
+        
+        $data ['data_user'] = $this->model->find_data_user();
+        $data ['data_siswa'] = $this->model->find_data_siswa();
+	    $data['laki_laki'] = $this->model->find_data('table_siswa','jenis_kalamin','laki Laki');
+        $data['perempuan'] = $this->model->find_data('table_siswa','jenis_kelamin','perempuan');
+		$response=[$data['data_user'],$data['data_siswa'],$data['laki_laki'], $data['perempuan']];
+		echo json_encode($response);
+	}
+
+
+
     public function v_data_user()
     {
         $data['title']= 'halaman user';
@@ -146,7 +159,8 @@ class Controller extends CI_Controller {
             'qiroah'=>$this->input->post('qiroah'),
             'wawancara_ortu'=>$this->input->post('wawancara_ortu'),
             'paquyuban'=>$this->input->post('paquyuban'),
-            'nilai_akhir'=>$this->input->post('nilai_akhir')
+            'nilai_akhir'=>$this->input->post('nilai_akhir'),
+            // 'peringkat'=> true,
         ];
         // echo json_encode($data);
         $this->model->save_nilai('table_nilai', $data);
