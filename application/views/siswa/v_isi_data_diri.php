@@ -139,7 +139,7 @@
 												<div class="form-group">
 													<label class="control-label col-md-3 col-sm-3 col-xs-12">NIK</label>
 													<div class="col-md-9 col-sm-9 col-xs-12">
-														<input type="text" name="nik" value="" class="form-control"
+														<input type="text" name="nik" value="" required class="form-control"
 															placeholder="">
 													</div>
 												</div>
@@ -391,7 +391,7 @@
 													<label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat
 														orang tua</label>
 													<div class="col-md-9 col-sm-9 col-xs-12">
-														<input type="text" name="alamat_orang_tua" value=""
+														<input type="text" name="alamat_orang_tua" value="" required
 															class="form-control" placeholder="Alamat orang tua">
 													</div>
 												</div>
@@ -587,6 +587,14 @@
 		</script>
 		<!-- Custom Theme Scripts -->
 		<script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
+
+		<script>
+			
+    $('#myDatepicker2').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
+    
+</script>
 
 		<script>
 			$('#tgl_selesai').datetimepicker({

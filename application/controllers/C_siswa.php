@@ -38,6 +38,48 @@ class C_siswa extends CI_Controller {
             redirect('c_siswa');
             
         }
+
+        $agama =  $this->input->post('agama');
+        if ($agama == '0')
+        {
+            $this->session->set_flashdata('error', 'Anda belum memilih agama');
+            redirect('c_admin/tambah_siswa');
+        }
+
+        $nika = $this->input->post('nik');
+        if ($nika == null) {
+            $this->session->set_flashdata('error', 'data nik harus di isi');
+            redirect('c_siswa');
+        }
+
+        $alamat = $this->input->post('alamat');
+        if ($alamat == null) {
+            $this->session->set_flashdata('error', 'alamat harus di isi');
+            redirect('c_siswa');    
+        }
+        
+        $tempat_lahir = $this->input->post('tempat_lahir');
+        if ($tempat_lahir == null) {
+            $this->session->set_flashdata('error', 'tempat lahir harus di isi');
+            redirect('c_siswa');    
+        }
+        $hafalan = $this->input->post('hafalan');
+        if ($hafalan == null) {
+            $this->session->set_flashdata('error', 'haafalan harus di isi');
+            redirect('c_siswa');    
+        }
+        $nama_ayah = $this->input->post('nama_ayah');
+        if ($nama_ayah == null) {
+            $this->session->set_flashdata('error', 'nama_ayah harus di isi');
+            redirect('c_siswa');    
+        }
+        $no_hp_ortu = $this->input->post('no_hp_ortu');
+        if ($no_hp_ortu == null) {
+            $this->session->set_flashdata('error', 'no hp ortu harus di isi');
+            redirect('c_siswa');    
+        }
+        
+
         $insert = [
             'id_user' => $this->session->userdata('id_user'),
             'no_registrasi' => $this->input->post('no_registrasi'),
