@@ -85,11 +85,9 @@
                                         <?=$value['jenis_kelamin'];?>
                                     </td>
                                     <td>
-                                        <!-- <a href="#" class="btn btn-primary btn-sm beri-nilai"
-											data-name="<?=$value['nama']?>" data-id="<?=$value['id_user']?>" data-pendaftaran="<?=$value['no_registrasi']?>"> <i class="fa fa-plus"></i>
-											Entri Nilai Siswa</a> -->
-
                                         <a href="<?php echo base_url(); ?>controller/v_details_siswa/<?=$value['id_siswa'];?>" class="btn btn-success btn-xs"> <i class="fa fa-search-plus"></i> Details Siswa</a>
+                                        <!-- <a href="#" onclick="ditails(<?=$value['id_user']?>);" class="btn btn-primary btn-xs">ditails</a> -->
+    
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -107,54 +105,26 @@
 
 <!-- Modal  nilai-->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ditails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Admin</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Ditails Siswa</h5>
             </div>
             <div class="modal-body">
 
-                <form action="<?=base_url();?>controller/add_admin" method="POST" enctype="multipart/form-data">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="id" id="id">
 
                     <div class="form-group">
-                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Username</label>
+                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Nama Siswa</label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input type="text" name="username" class="form-control" required placeholder="masukan username">
-                            <small>
-								<font color="red">username wajib isi</font>
-							</small>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Email</label>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input type="email" name="email" class="form-control" required placeholder="masukan email">
-                            <small>
-								<font color="red">email wajib isi</font>
-							</small>
+                            <input type="text" name="nama" class="form-control">
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Password</label>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input type="password" name="password" class="form-control" required placeholder="masukan password">
-                            <small>
-								<font color="red">password wajib isi</font>
-							</small>
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Level
-						</label>
-                        <div class="col-md-3 col-sm-9 col-xs-12">
-                            <select name="level" id="" class="form-control">
-								<option>admin</option>
-							</select>
-                        </div>
-                    </div>
+       
             </div>
 
             <div class="modal-footer">
@@ -165,6 +135,17 @@
         </div>
     </div>
 </div>
+
+
+<script>
+     function ditails(id) {
+         $("#id").val(id);
+         $("#ditails").modal('show');
+
+         
+     }
+</script>
+
 
 <!-- modal konfirmasi hapus data -->
 <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">

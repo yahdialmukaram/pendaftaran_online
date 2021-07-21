@@ -119,7 +119,7 @@ function diagram(data) {
 var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
-        labels: ['Data Pengguna Account', 'Data Siswa','Data Laki Laki','Data Perempuan'],
+        labels: ['Data Pengguna Account', 'Data Siswa Mendaftar','Data Laki Laki','Data Perempuan'],
         datasets: [{
             label: '# of Votes',
             data: data,
