@@ -160,15 +160,22 @@ class Controller extends CI_Controller {
             'wawancara_ortu'=>$this->input->post('wawancara_ortu'),
             'paquyuban'=>$this->input->post('paquyuban'),
             'nilai_akhir'=>$this->input->post('nilai_akhir'),
-            // 'peringkat'=> true,
+            // 'rangking'=> $this->model->find_data_nilai('table_nilai','nilai_akhir'),
         ];
-        // echo json_encode($data);
-        $this->model->save_nilai('table_nilai', $data);
-        $this->session->set_flashdata('success', 'data nilai success di input');
+        echo json_encode($data);
+        // $this->model->save_nilai('table_nilai', $data);
+        // $this->session->set_flashdata('success', 'data nilai success di input');
         
-        redirect('controller/v_data_pendaftaran');
+        // redirect('controller/v_data_pendaftaran');
         
     }
+    public function find_nilai_akhir(Type $var = null)
+    {
+        $find_nilai_akhir = $this->model->find_nilai_akhir('table_nilai','nilai_akhir');
+        echo json_encode($find_nilai_akhir);
+
+    }
+
 
     public function v_saran()
     {

@@ -202,8 +202,14 @@ class Model extends CI_Model {
         $this->db->where('jenis_kelamin', $object);
         return $this->db->get($table)->num_rows();
         
-                
+    }
+    public function find_nilai_akhir($table, $object)
+    {
+        $this->db->select('nilai_akhir');
+        $this->db->from($table, $object);
+        return $this->db->get()->result_array();
         
+
     }
 
   
