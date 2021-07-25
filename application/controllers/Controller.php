@@ -119,6 +119,7 @@ class Controller extends CI_Controller {
         $this->model->delete_user($id);
         $this->model->delete_nilai($id);
         $this->model->delete_pendaftaran($id);
+        $this->model->delete_peringkat($id);
         $this->session->set_flashdata('error', 'data user telah di hapus');
         
         redirect('controller/v_data_user');
@@ -163,7 +164,8 @@ class Controller extends CI_Controller {
             'wawancara_ortu'=>$this->input->post('wawancara_ortu'),
             'paquyuban'=>$this->input->post('paquyuban'),
             'nilai_akhir'=>$this->input->post('nilai_akhir'),
-            // 'rangking'=> $this->model->find_data_nilai('table_nilai','nilai_akhir'),
+            'status_sms'=>0,
+
         ];
         
         $this->model->save_nilai('table_nilai', $data);

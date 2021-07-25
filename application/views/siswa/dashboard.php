@@ -61,13 +61,13 @@
 			<?php endif; ?>
 			<div class="alert alert-success text-center" role="alert">
 				<strong>Peringkat</strong>
-				<h1>Peringkat Anda : 
+				<h5>Peringkat Anda : 
 					<?php if ($peringkat['peringkat']==null) {
 						echo"Peringkat Belum Ada";
 					} else {
 						echo $peringkat['peringkat'];
 					} ?>
-					</h1>
+					</h5>
 			</div>
 
 		
@@ -103,7 +103,9 @@
                   <h5 style="text-align: center;">SDIT Qurrata A'yun</i>
 				  <br>
 				  <br>
+				  <?php if ($status_daftar==false):?>
 				  <a href="<?=base_url('c_siswa/v_sdit1');?>" class="btn btn-success btn-sm sembunyi">Klik di sini </a>
+				  <?php endif; ?>
                   </h5>
                 </div>
               </div>
@@ -113,8 +115,10 @@
                   <div style="text-align: center;" class="count"><i class="fa fa-user"></i></div>
                   <h5 style="text-align: center;">SDIT Qurrata A'yun 2 Lintau</i>
 				  <br>
-				  <br>
+				  <br>  
+				  <?php if ($status_daftar==false):?>
 				  <a href="<?=base_url('c_siswa/v_sdit2');?>" class="btn btn-success btn-sm sembunyi">Klik di sini </a>
+				  <?php endif; ?>
                   </h5>
                 </div>
               </div>
@@ -125,8 +129,10 @@
                   <div style="text-align: center;" class="count"><i class="fa fa-user"></i></div>
                   <h5 style="text-align: center;">SDIT Qurrata A'yun 3 Batusangkar</i>
 				  <br>
-				  <br>
+				  <br> 
+				  <?php if ($status_daftar==false):?>
 				  <a href="<?=base_url('c_siswa/v_sdit3');?>" class="btn btn-success btn-sm sembunyi">Klik di sini </a>
+				  <?php endif; ?>
                   </h5>
                 </div>
               </div>

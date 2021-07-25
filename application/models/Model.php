@@ -32,6 +32,11 @@ class Model extends CI_Model {
         $this->db->where('id_user', $id);
         $this->db->delete('table_sekolah');
     }
+    public function delete_peringkat($id)
+    {
+        $this->db->where('id_user', $id);
+        $this->db->delete('table_peringkat');
+    }
 
     public function get_pendaftaran_siswa()
     {
@@ -234,6 +239,13 @@ class Model extends CI_Model {
         
     }
 
+    public function searchData($table,$reference,$id)
+    {
+        $this->db->from($table);
+        $this->db->where($reference, $id);
+        return $this->db->get();
+        
+    }
   
 }
     

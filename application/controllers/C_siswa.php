@@ -128,6 +128,12 @@ class C_siswa extends CI_Controller {
 
         $id_user=$this->session->userdata('id_user');
         $data['title'] = 'pendaftaran';
+        $status_daftar=$this->model->searchData('table_sekolah','id_user',$id_user)->result_array();
+        if ($status_daftar==null) {
+            $data['status_data']=true;
+        } else {
+            $data['status_data']=false;
+        }
         $data['peringkat']=$this->model->checkPeringkatUser($id_user);
         $data ['find_nik'] = $this->model_siswa->find_nik('table_siswa','nisn')->row_array();
 		$data['status_daftar']=$this->model_siswa->find_data('table_sekolah','id_user',$this->session->userdata('id_user'))->row_array()['id_user'];
@@ -160,7 +166,7 @@ class C_siswa extends CI_Controller {
         $this->load->view('siswa/header',$data);
         $this->load->view('siswa/dashboard', $data);
         $this->load->view('siswa/footer');   
-        // echo json_encode($data);
+        // echo json_encode($status_daftar);
     }
     
     public function v_sdit1()
@@ -260,7 +266,7 @@ class C_siswa extends CI_Controller {
         $this->model_siswa->save_pendaftaran('table_sekolah', $data);
         
         $message='Terimakasih Sudah Mendaftar, nomor Pendaftaran anda :'.$check_number['no_registrasi'].' berikut jadwal ujian anda :'.$result[0]['jadwal'];
-        // $send_message=$this->sms($check_number['no_hp_ortu'],$message);
+        $send_message=$this->sms($check_number['no_hp_ortu'],$message);
         $this->session->set_flashdata('success', 'Pendaftaran anda telah berhasil');
         // echo json_encode($message);
         

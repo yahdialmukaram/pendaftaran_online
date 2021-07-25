@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 21, 2021 at 06:21 AM
+-- Generation Time: Jul 25, 2021 at 10:09 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -40,7 +40,7 @@ CREATE TABLE `table_jadwal` (
 --
 
 INSERT INTO `table_jadwal` (`id_jadwal`, `jadwal`, `kouta`, `kouta_terisi`) VALUES
-(21, '07/18/2021 7:36 PM sampai 07/15/2021 7:36 PM', '100', '32');
+(21, '07/18/2021 7:36 PM sampai 07/15/2021 7:36 PM', '100', '33');
 
 -- --------------------------------------------------------
 
@@ -55,18 +55,40 @@ CREATE TABLE `table_nilai` (
   `wawancara_ortu` varchar(255) NOT NULL,
   `paquyuban` varchar(255) NOT NULL,
   `nilai_akhir` varchar(255) NOT NULL,
-  `rangking` varchar(255) NOT NULL
+  `status_sms` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `table_nilai`
 --
 
-INSERT INTO `table_nilai` (`id_nilai`, `id_user`, `qiroah`, `wawancara_ortu`, `paquyuban`, `nilai_akhir`, `rangking`) VALUES
+INSERT INTO `table_nilai` (`id_nilai`, `id_user`, `qiroah`, `wawancara_ortu`, `paquyuban`, `nilai_akhir`, `status_sms`) VALUES
 (18, 21, '40', '55', '44', '46.333333333333336', ''),
 (20, 19, '60', '77', '78', '71.66666666666667', ''),
 (21, 20, '70', '77', '88', '78.33333333333333', ''),
-(26, 13, '0', '0', '0', '0', '');
+(24, 13, '66', '77', '88', '77', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_peringkat`
+--
+
+CREATE TABLE `table_peringkat` (
+  `id_peringkat` int(11) NOT NULL,
+  `id_user` varchar(255) NOT NULL,
+  `peringkat` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_peringkat`
+--
+
+INSERT INTO `table_peringkat` (`id_peringkat`, `id_user`, `peringkat`) VALUES
+(1, '20', '1'),
+(2, '13', '2'),
+(3, '19', '3'),
+(4, '21', '4');
 
 -- --------------------------------------------------------
 
@@ -205,6 +227,12 @@ ALTER TABLE `table_nilai`
   ADD PRIMARY KEY (`id_nilai`);
 
 --
+-- Indexes for table `table_peringkat`
+--
+ALTER TABLE `table_peringkat`
+  ADD PRIMARY KEY (`id_peringkat`);
+
+--
 -- Indexes for table `table_saran`
 --
 ALTER TABLE `table_saran`
@@ -242,7 +270,13 @@ ALTER TABLE `table_jadwal`
 -- AUTO_INCREMENT for table `table_nilai`
 --
 ALTER TABLE `table_nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `table_peringkat`
+--
+ALTER TABLE `table_peringkat`
+  MODIFY `id_peringkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `table_saran`
@@ -254,19 +288,19 @@ ALTER TABLE `table_saran`
 -- AUTO_INCREMENT for table `table_sekolah`
 --
 ALTER TABLE `table_sekolah`
-  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `table_siswa`
 --
 ALTER TABLE `table_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `table_user`
 --
 ALTER TABLE `table_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
