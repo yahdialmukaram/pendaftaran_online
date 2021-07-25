@@ -125,7 +125,10 @@ class C_siswa extends CI_Controller {
     }
     public function dashboard()
     {
+
+        $id_user=$this->session->userdata('id_user');
         $data['title'] = 'pendaftaran';
+        $data['peringkat']=$this->model->checkPeringkatUser($id_user);
         $data ['find_nik'] = $this->model_siswa->find_nik('table_siswa','nisn')->row_array();
 		$data['status_daftar']=$this->model_siswa->find_data('table_sekolah','id_user',$this->session->userdata('id_user'))->row_array()['id_user'];
         $data['nilai']= $this->model->get_nilai_siswa('table_nilai','id_user');
@@ -153,10 +156,11 @@ class C_siswa extends CI_Controller {
         } else {
 			$data['state_register']=false;
 		}
-        // $data['nilai']= $this->model->get_nilai();
+        $data['nilai']= $this->model->get_nilai();
         $this->load->view('siswa/header',$data);
         $this->load->view('siswa/dashboard', $data);
         $this->load->view('siswa/footer');   
+        // echo json_encode($data);
     }
     
     public function v_sdit1()

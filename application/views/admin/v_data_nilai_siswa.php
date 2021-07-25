@@ -46,13 +46,13 @@
                             </thead>
                             <tbody>
 
-                                <?= $no =1 ;$peringkat=2;
+                                <?= $no =1 ;
                         foreach ($nilai as $key => $value):?>
 
                                     <tr>
-                                        <?php $newNumber=$no++ ?>
+                                       
                                         <td>
-                                            <?= $newNumber?>
+                                            <?= $no++?>
                                         </td>
                                         <td>
                                             <?= $value['no_registrasi']?>
@@ -73,15 +73,13 @@
                                             <?= number_format( $value  ['nilai_akhir'])?>
                                         </td>
                                         <td>
-                                            <?php if ($newNumber<=$peringkat):?>
-                                            <label for="" class="label label-danger">Peringkat <?=$newNumber?>
+                                            <label for="" class="label label-danger">Peringkat <?=$value['peringkat']?>
 										</label>
-                                            <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($peringkat>=$newNumber):?>
+                                            <?php if ($value['peringkat']<=$limit_lulus):?>
                                             <label for="" class="label label-success">Lulus</label>
-                                            <?php elseif ($peringkat<=$newNumber) :?>
+                                            <?php else:?>
                                             <label for="" class="label label-danger">Tidak Lulus</label>
                                             <?php endif;?>
                                         </td>

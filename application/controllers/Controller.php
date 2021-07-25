@@ -128,9 +128,11 @@ class Controller extends CI_Controller {
     {
         $data['title']= 'halaman nilai';
         $data['nilai']= $this->model->get_nilai();
+        $data['limit_lulus']=3;
         $this->load->view('admin/header', $data);
         $this->load->view('admin/v_data_nilai_siswa', $data);
-        $this->load->view('admin/footer');      
+        $this->load->view('admin/footer');     
+        // echo json_encode($data); 
     }
     public function FunctionName(Type $var = null)
     {
@@ -140,6 +142,7 @@ class Controller extends CI_Controller {
     {
         $data['title']= 'data pendaftaran';
         $data['pendaftaran']= $this->model->get_pendaftaran_siswa();
+       
         $this->load->view('admin/header', $data);
         $this->load->view('admin/v_data_pendaftaran', $data);
         $this->load->view('admin/footer');      
@@ -162,12 +165,30 @@ class Controller extends CI_Controller {
             'nilai_akhir'=>$this->input->post('nilai_akhir'),
             // 'rangking'=> $this->model->find_data_nilai('table_nilai','nilai_akhir'),
         ];
-        echo json_encode($data);
-        // $this->model->save_nilai('table_nilai', $data);
-        // $this->session->set_flashdata('success', 'data nilai success di input');
         
-        // redirect('controller/v_data_pendaftaran');
+        $this->model->save_nilai('table_nilai', $data);
+        $this->buat_ranking();
+        // echo json_encode($data);
+        $this->session->set_flashdata('success', 'data nilai success di input');
         
+        redirect('controller/v_data_pendaftaran');
+        
+    }
+    public function buat_ranking(Type $var = null)
+    {
+        $checkRanking=$this->model->getNIlai();
+        if ($checkRanking!==null) {
+            $no=1;
+            foreach ($checkRanking as $key => $value) {
+                $result[]=[
+                    'id_user'=>$value['id_user'],
+                    'peringkat'=>$no++,
+                    // 'score'=>$value['nilai_akhir']
+                ];
+            }
+            $this->model->updateScore($result);
+        }
+        echo json_encode($result);
     }
     public function find_nilai_akhir(Type $var = null)
     {

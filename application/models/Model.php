@@ -126,7 +126,8 @@ class Model extends CI_Model {
         $this->db->from('table_nilai');
         $this->db->order_by('nilai_akhir', 'desc');
         $this->db->join('table_siswa', 'table_siswa.id_user = table_nilai.id_user', 'left');  
-         
+           $this->db->join('table_peringkat', 'table_nilai.id_user = table_peringkat.id_user');
+        
         return $this->db->get()->result_array();
         
         
@@ -210,6 +211,27 @@ class Model extends CI_Model {
         return $this->db->get()->result_array();
         
 
+    }
+    public function getNIlai(Type $var = null)
+    {
+        $this->db->from('table_nilai');
+        // $this->db->join('table_peringkat', 'table_nilai.id_user = table_peringkat.id_user');
+        
+        $this->db->order_by('nilai_akhir', 'desc');
+        return $this->db->get()->result_array();
+    }
+    public function updateScore($object)
+    {
+        $this->db->truncate('table_peringkat');
+        $this->db->insert_batch('table_peringkat', $object);
+        
+    }
+    public function checkPeringkatUser($id_user)
+    {
+        $this->db->from('table_peringkat');
+        $this->db->where('id_user', $id_user);
+        return $this->db->get()->row_array();
+        
     }
 
   

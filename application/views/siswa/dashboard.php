@@ -59,7 +59,16 @@
 				Maaf pendaftaran sudah tutup pada tanggal<?=$date_close['day']?>/<?=$date_close['month']?>/<?=$date_close['year']?>
 			</div>
 			<?php endif; ?>
-
+			<div class="alert alert-success text-center" role="alert">
+				<strong>Peringkat</strong>
+				<h1>Peringkat Anda : 
+					<?php if ($peringkat['peringkat']==null) {
+						echo"Peringkat Belum Ada";
+					} else {
+						echo $peringkat['peringkat'];
+					} ?>
+					</h1>
+			</div>
 
 		
 								
