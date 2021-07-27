@@ -58,7 +58,7 @@
                         </div>
                         <?php endif; ?>
                         <div>
-                            <input type="text" name="email" class="form-control" placeholder="Email" required="" />
+                            <input type="email" name="email" class="form-control" placeholder="Email" required="" />
                         </div>
                         <div>
                             <input type="password" name="password" class="form-control" placeholder="Password" required="" />
@@ -101,7 +101,6 @@
                         </div>
                         <div>
                             <button type="submit" class="btn btn-default submit btn-sm">Register</button>
-                            <!-- <a class="btn btn-default submit" href="index.html">Submit</a> -->
                         </div>
 
                         <div class="clearfix"></div>

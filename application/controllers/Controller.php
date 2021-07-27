@@ -135,10 +135,7 @@ class Controller extends CI_Controller {
         $this->load->view('admin/footer');     
         // echo json_encode($data); 
     }
-    public function FunctionName(Type $var = null)
-    {
-        # code...
-    }
+   
     public function v_data_pendaftaran(Type $var = null)
     {
         $data['title']= 'data pendaftaran';
@@ -192,13 +189,6 @@ class Controller extends CI_Controller {
         }
         echo json_encode($result);
     }
-    public function find_nilai_akhir(Type $var = null)
-    {
-        $find_nilai_akhir = $this->model->find_nilai_akhir('table_nilai','nilai_akhir');
-        echo json_encode($find_nilai_akhir);
-
-    }
-
 
     public function v_saran()
     {
@@ -219,6 +209,20 @@ class Controller extends CI_Controller {
         
         
     }
+    public function update_status($jenis)
+	{
+		$id=$this->input->post('id');
+		
+		if ($jenis=='verifikasi') {
+			$this->model->update_status($id,['status_sms'=>1]);
+			$this->session->set_flashdata('success', ' Verifikasi SMS Berhasil Terkirim');
+		} 
+        // elseif ($jenis=='cancel') {
+		// 	$this->model->update_status($id,['status_sms'=>0]);
+		// 	$this->session->set_flashdata('error', 'Verifikasi berhasil di batalkan');
+		// }
+		redirect('controller/v_data_nilai_siswa');
+	}
     
     
 }

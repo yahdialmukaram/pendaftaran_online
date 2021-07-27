@@ -209,14 +209,7 @@ class Model extends CI_Model {
         return $this->db->get($table)->num_rows();
         
     }
-    public function find_nilai_akhir($table, $object)
-    {
-        $this->db->select('nilai_akhir');
-        $this->db->from($table, $object);
-        return $this->db->get()->result_array();
-        
 
-    }
     public function getNIlai(Type $var = null)
     {
         $this->db->from('table_nilai');
@@ -244,6 +237,21 @@ class Model extends CI_Model {
         $this->db->from($table);
         $this->db->where($reference, $id);
         return $this->db->get();
+        
+    }   
+    public function update_status($id,$data)
+	{
+		$this->db->where('id_user', $id);
+		$this->db->update('table_nilai', $data);	
+    }
+
+    public function get_profil_siswa($id)
+    {
+        $this->db->from('table_siswa');
+        $this->db->where('id_siswa', $id);
+        return $this->db->get()->result_array();
+        
+        
         
     }
   

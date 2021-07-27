@@ -86,8 +86,8 @@
                                     </td>
                                     <td>
                                         <a href="<?php echo base_url(); ?>controller/v_details_siswa/<?=$value['id_siswa'];?>" class="btn btn-success btn-xs"> <i class="fa fa-search-plus"></i> Details Siswa</a>
-                                        <!-- <a href="#" onclick="ditails(<?=$value['id_user']?>);" class="btn btn-primary btn-xs">ditails</a> -->
-    
+                                        <a href="#" onclick="ditails(<?=$value['id_siswa']?>);" class="btn btn-primary btn-xs">ditails</a>
+
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -119,12 +119,12 @@
                     <div class="form-group">
                         <label class="control-label col-md-12 col-sm-3 col-xs-12">Nama Siswa</label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input type="text" name="nama" class="form-control">
+                            <input type="text" name="nama" id="nama" value="" class="form-control">
                         </div>
                     </div>
 
 
-       
+
             </div>
 
             <div class="modal-footer">
@@ -138,12 +138,14 @@
 
 
 <script>
-     function ditails(id) {
-         $("#id").val(id);
-         $("#ditails").modal('show');
+    function ditails(id) {
+        $("#id").val(id);
+        let nama =  $('#nama').val();
+      
+        $("#ditails").modal('show');
 
-         
-     }
+
+    }
 </script>
 
 

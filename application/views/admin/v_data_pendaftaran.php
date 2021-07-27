@@ -52,7 +52,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?= $no =1 ;
+								<?php $no =1 ;
                         foreach ($pendaftaran as $key => $value):?>
 								<tr>
 									<td><?=$no++?></td>
