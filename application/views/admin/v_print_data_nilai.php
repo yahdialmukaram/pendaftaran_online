@@ -65,7 +65,7 @@
                 <th>Nilai Akhir</th>
                 <th style="width: 15%;">Rangking</th>
                 <th style="width: 15%;">Status</th>
-             
+
             </tr>
         </thead>
         <tbody>
@@ -74,9 +74,8 @@
 foreach ($nilai as $key => $value):?>
 
                 <tr>
-                    <?php $newNumber=$no++ ?>
                     <td>
-                        <?= $newNumber?>
+                        <?= $no++?>
                     </td>
                     <td>
                         <?= $value['no_registrasi']?>
@@ -97,20 +96,23 @@ foreach ($nilai as $key => $value):?>
                         <?= number_format( $value  ['nilai_akhir'])?>
                     </td>
                     <td style="text-align: center; ">
-                        <?php if ($newNumber<=$peringkat):?>
-                        <label for=" " class="label label-danger ">Peringkat <?=$newNumber?>
+                        <label for=" " class="label label-danger ">Peringkat <?=$value['peringkat']?>
 					</label>
-                        <?php endif; ?>
+
                     </td style="text-align: center; ">
-                    <td>
-                        <?php if ($peringkat>=$newNumber):?>
-                        <label for=" " class="label label-success ">Lulus</label>
-                        <?php elseif ($peringkat<=$newNumber) :?>
-                        <label for=" " class="label label-danger ">Tidak Lulus</label>
+                    <td style="text-align: center;">
+                        <?php if ($value['peringkat']<=$limit_lulus):?>
+                        <label for="" class="label label-success">Lulus</label>
+                        <?php else:?>
+                        <label for="" class="label label-danger">Tidak Lulus</label>
                         <?php endif;?>
                     </td>
 
-                  
+
+
+
+
+
 
                 </tr>
                 <?php endforeach; ?>
