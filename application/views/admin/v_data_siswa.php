@@ -104,6 +104,11 @@
 </div>
 
 
+<style>
+    .modal-dialog{
+        width: 1200px;
+    }
+</style>
 <!-- Modal  nilai-->
 
 <div class="modal fade" id="ditails" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -116,6 +121,8 @@
 
                 <form action="" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id" id="id">
+
+                    <div class="col-md-6">
 
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">No registrasi</label>
@@ -229,6 +236,10 @@
                     </div>
                     <hr>
                     <hr>
+                    <br>
+                </div>
+                    
+                    <div class="col-md-6">
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Penyakit diderita</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
@@ -269,6 +280,7 @@
                     </div>
                     <hr>
                     <hr>
+              
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Ayah</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
@@ -346,7 +358,8 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
             </div>
             </form>
         </div>
