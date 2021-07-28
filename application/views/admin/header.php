@@ -73,10 +73,10 @@
                   <li><a href="<?=base_url();?>controller/v_jadwal"><i class="fa fa-clock-o"></i> Jadwal Ujian</a>
                   </li>
 
-                  <div class="menu_section">
+                  <!-- <div class="menu_section">
                  <h3>Live On</h3>
                
-               </div>
+               </div> -->
                   <li><a href="<?= base_url();?>controller/v_saran"><i class="fa fa-envelope-o"></i> Kritik & Saran</a></li>
                   <li><a href="<?= base_url();?>c_login"><i class="fa fa-power-off"></i> Logout</a></li>
                  </ul>
@@ -86,7 +86,7 @@
               </div>
     
 
-            </div>
+            <!-- </div> -->
             <!-- /sidebar menu -->
 
           </div>

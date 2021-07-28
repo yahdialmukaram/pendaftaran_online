@@ -49,7 +49,7 @@
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
+                      <ul class="dropdown-menu" role="menu">
                           <li><a href="#">Settings 1</a>
                           </li>
                           <li><a href="#">Settings 2</a>
@@ -63,7 +63,7 @@
                   </div>
                   <div class="x_content">
 									
-                <canvas id="myChart" width="120%" height="50%" ></canvas>
+                <canvas id="myChart" width="130%" height="50%" ></canvas>
                   </div>
                 </div>
               </div>

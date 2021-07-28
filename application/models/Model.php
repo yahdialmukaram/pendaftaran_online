@@ -251,9 +251,14 @@ class Model extends CI_Model {
         $this->db->where('id_siswa', $id);
         return $this->db->get()->result_array();
         
-        
-        
     }
+    public function show_profil($id)
+	{
+		$this->db->from('table_siswa');
+		$this->db->where('id_siswa', $id);
+		return $this->db->get()->row_array();
+		
+	}
   
 }
     

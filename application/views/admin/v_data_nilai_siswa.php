@@ -123,11 +123,11 @@
         <div class="modal-content modal-sm">
             <form class="form-verifikasi" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title">Konfirmasi Verifikasi</h5>
+                    <h5 class="modal-title">Konfirmasi Verifikasi SMS</h5>
 
                 </div>
                 <div class="modal-body">
-                    <input type="text" name="id" id="id" value="" class="id_user">
+                    <input type="hidden" name="id" id="id" value="" class="id_user">
                     <div class="text"></div>
                 </div>
                 <div class="modal-footer">

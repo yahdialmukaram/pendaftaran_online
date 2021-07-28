@@ -42,7 +42,7 @@
 
 						<table id="datatable" class="table table-striped table-bordered">
 							<thead>
-								<tr>
+							<tr style="background-color: rgb(27, 27, 27);">
 									<th style="width: 1%;">No</th>
 									<th>Nama Siswa</th>
 									<th>Email</th>

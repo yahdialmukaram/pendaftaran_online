@@ -86,7 +86,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Data Table Jadwal</h2>
+                    <h2>Data Jadwal</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -101,7 +101,7 @@
                 
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
-                        <tr>
+					  <tr style="background-color: rgb(27, 27, 27);">
                           <th style="width: 1%;">No</th>
                           <th style="width: 35%;">Data Jadwal waktu Ujian</th>
                           <th style="width: 15%;">Kouta Siswa</th>

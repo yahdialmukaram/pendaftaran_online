@@ -48,7 +48,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
 	    <div class="container d-flex align-items-center">
-		<h5 style="float:right;"><a href="https://wa.me/6282169074845?text=Isi Pesan">  <img src="<?=base_url('images/wea.png');?>" width="30px" height="30px" style="border-radius: 150px;"></a></h5>
+		<h5 style="float:right;"><a href="<?=base_url('c_user')?>">  <img src="<?=base_url('assets/template/images/lam.jpg');?>" width="30px" height="30px" style="border-radius: 150px;"></a></h5>
 	    <marquee>	<a class="navbar-brand" href="<?=base_url();?>c_user">Selamat Datang di SDIT Qurrata A'yun Tanah Datar </a></marquee>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu

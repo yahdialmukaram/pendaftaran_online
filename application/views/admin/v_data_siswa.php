@@ -85,8 +85,9 @@
                                         <?=$value['jenis_kelamin'];?>
                                     </td>
                                     <td>
-                                        <a href="<?php echo base_url(); ?>controller/v_details_siswa/<?=$value['id_siswa'];?>" class="btn btn-success btn-xs"> <i class="fa fa-search-plus"></i> Details Siswa</a>
-                                        <a href="#" onclick="ditails(<?=$value['id_siswa']?>);" class="btn btn-primary btn-xs">ditails</a>
+                                        <!-- <a href="<?php echo base_url(); ?>controller/v_details_siswa/<?=$value['id_siswa'];?>" class="btn btn-success btn-xs"> <i class="fa fa-search-plus"></i> Details Siswa
+                                        </a> -->
+                                        <a href="#" onclick="ditails_profil(<?=$value['id_siswa']?>);" class="btn btn-primary btn-sm fa fa-search-plus"> Ditails Data Siswa</a>
 
                                     </td>
                                 </tr>
@@ -109,27 +110,243 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ditails Siswa</h5>
+                <h4 style="text-align: center;"><b>Ditails Data Siswa</b></h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="modal_ditails">
 
                 <form action="" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="id" id="id">
+                    <input type="hidden" name="id" id="id">
 
                     <div class="form-group">
-                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Nama Siswa</label>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <input type="text" name="nama" id="nama" value="" class="form-control">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">No registrasi</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="no_registrasi" value="" id="no_registrasi" class="form-control" placeholder="">
                         </div>
                     </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nik</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="nik" value="" id="nik" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Siswa</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="nama" value="" id="nama" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat Lengkap</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="alamat" value="" id="alamat" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tempat Lahir</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="tempat_lahir" value="" id="tempat_lahir" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal Lahir</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="tanggal_lahir" value="" id="tanggal_lahir" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Jenis Kelamin</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="jenis_kelamin" value="" id="jenis_kelamin" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Anak Ke</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="anak_ke" value="" id="anak_ke" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Jumlah Keluarga</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="jumlah_keluarga" value="" id="jumlah_keluarga" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Bahas di Rumah</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="bahasa_dirumah" value="" id="bahasa_dirumah" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Jarak Tempuh</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="jarak_tempuh" value="" id="jarak_tempuh" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gol Darah</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="golongan_darah" value="" id="golongan_darah" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Keadaan Fisik</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="keadaan_fisik" value="" id="keadaan_fisik" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Penyakit</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="penyakit" value="" id="penyakit" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Penyakit diderita</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="penyakit_diderita" value="" id="penyakit_diderita" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Bakat</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="bakat" value="" id="bakat" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Hafalan</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="hafalan" value="" id="hafalan" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Kemampuan Baca</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="kemampuan_baca" value="" id="kemampuan_baca" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Kewarganegaraan</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="kewarganegaraan" value="" id="kewarganegaraan" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Ayah</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="nama_ayah" value="" id="nama_ayah" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">No HP Ortu</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="no_hp_ortu" value="" id="no_hp_ortu" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Agama</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="agama" value="" id="agama" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Status Perkawinan</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="status_perkawinan" value="" id="status_perkawinan" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Alamat Orang Tua</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="alamat_orang_tua" value="" id="alamat_orang_tua" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Status Rumah</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="status_rumah" value="" id="status_rumah" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Pendidikan Ayah</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="pendidikan_ayah" value="" id="pendidikan_ayah" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Pekerjaan Ayah</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="pekerjaan_ayah" value="" id="pekerjaan_ayah" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Penghasilan Ayah</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type disabled="text" name="penghasilan_ayah" value="" id="penghasilan_ayah" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
 
 
 
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save</button>
             </div>
             </form>
         </div>
@@ -138,16 +355,53 @@
 
 
 <script>
-    function ditails(id) {
+    function ditails_profil(id) {
         $("#id").val(id);
-        let nama =  $('#nama').val();
-      
-        $("#ditails").modal('show');
+        $.ajax({
+            type: "POST",
+            url: "<?=base_url();?>controller/show_profil",
+            data: {
+                id: id
+            },
+            dataType: "JSON",
+            success: function(response) {
+                console.log(response);
+                $("#no_registrasi").val(response.no_registrasi);
+                $("#nik").val(response.nik);
+                $("#nama").val(response.nama);
+                $("#alamat").val(response.alamat);
+                $("#tempat_lahir").val(response.tempat_lahir);
+                $("#tanggal_lahir").val(response.tanggal_lahir);
+                $("#jenis_kelamin").val(response.jenis_kelamin);
+                $("#anak_ke").val(response.anak_ke);
+                $("#jumlah_keluarga").val(response.jumlah_keluarga);
+                $("#bahasa_dirumah").val(response.bahasa_dirumah);
+                $("#jarak_tempuh").val(response.jarak_tempuh);
+                $("#golongan_darah").val(response.golongan_darah);
+                $("#keadaan_fisik").val(response.keadaan_fisik);
+                $("#penyakit").val(response.penyakit);
+                $("#penyakit_diderita").val(response.penyakit_diderita);
+                $("#bakat").val(response.bakat);
+                $("#hafalan").val(response.hafalan);
+                $("#kemampuan_baca").val(response.kemampuan_baca);
+                $("#kewarganegaraan").val(response.kewarganegaraan);
+                $("#nama_ayah").val(response.nama_ayah);
+                $("#no_hp_ortu").val(response.no_hp_ortu);
+                $("#agama").val(response.agama);
+                $("#status_perkawinan").val(response.status_perkawinan);
+                $("#alamat_orang_tua").val(response.alamat_orang_tua);
+                $("#status_rumah").val(response.status_rumah);
+                $("#pendidikan_ayah").val(response.pendidikan_ayah);
+                $("#pekerjaan_ayah").val(response.pekerjaan_ayah);
+                $("#penghasilan_ayah").val(response.penghasilan_ayah);
+
+                $("#ditails").modal('show');
 
 
+            }
+        });
     }
 </script>
-
 
 <!-- modal konfirmasi hapus data -->
 <div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">

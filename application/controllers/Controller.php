@@ -223,6 +223,12 @@ class Controller extends CI_Controller {
 		// }
 		redirect('controller/v_data_nilai_siswa');
 	}
+    public function show_profil()
+    {
+        $id = $this->input->post('id');
+		$data=$this->model->show_profil($id);
+		echo json_encode($data);
+    }
     
     
 }
