@@ -129,7 +129,7 @@ class Controller extends CI_Controller {
     {
         $data['title']= 'halaman nilai';
         $data['nilai']= $this->model->get_nilai();
-        $data['limit_lulus']=3;
+        $data['limit_lulus']=5;
         $this->load->view('admin/header', $data);
         $this->load->view('admin/v_data_nilai_siswa', $data);
         $this->load->view('admin/footer');     
@@ -213,14 +213,17 @@ class Controller extends CI_Controller {
 	{
 		$id=$this->input->post('id');
 		
+        $cari_sekolah = $this->model->cari_sekolah($id);
+        $cari_peringkat = $this->model->cari_peringkat($id);
+        $check_number = $this->model->check_number($id);
+
 		if ($jenis=='verifikasi') {
-			$this->model->update_status($id,['status_sms'=>1]);
+            $this->model->update_status($id,['status_sms'=>1]);
+            $message='Anda Terdaftar ke:'.$cari_sekolah['nama_sekolah'].','.' Peringkat hasil ujian atas nama '.$check_number['nama'].' adalah peringkat:'. $cari_peringkat['peringkat'] ." " .'PERHATIKAN: untuk peringkat yang di bawah peringkat 5 dinyatakan lulus, untuk di atas peringkat 5 maaf tidak lulus.  BAGI YANG LULUS UNTUK PENDAFTARAN ULANG BISA LANGSUNG DATANG KE SEKOLAH YANG CALON SISWA DAFTAR, TERIMAKASIH'; 
+            $send_message=$this->sms($check_number['no_hp_ortu'],$message);
 			$this->session->set_flashdata('success', ' Verifikasi SMS Berhasil Terkirim');
 		} 
-        // elseif ($jenis=='cancel') {
-		// 	$this->model->update_status($id,['status_sms'=>0]);
-		// 	$this->session->set_flashdata('error', 'Verifikasi berhasil di batalkan');
-		// }
+        // echo json_encode($message);
 		redirect('controller/v_data_nilai_siswa');
 	}
     public function show_profil()
@@ -228,6 +231,31 @@ class Controller extends CI_Controller {
         $id = $this->input->post('id');
 		$data=$this->model->show_profil($id);
 		echo json_encode($data);
+    }
+    public function sms($nohp,$sms)
+    {
+        
+        $userkey = '3b5371593b81';
+        $passkey = '5bc86e097300c9279c10fb00';
+        $telepon = $nohp;
+        $message = $sms;
+        $url = 'https://console.zenziva.net/reguler/api/sendsms/';
+        $curlHandle = curl_init();
+        curl_setopt($curlHandle, CURLOPT_URL, $url);
+        curl_setopt($curlHandle, CURLOPT_HEADER, 0);
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, 2);
+        curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($curlHandle, CURLOPT_TIMEOUT,30);
+        curl_setopt($curlHandle, CURLOPT_POST, 1);
+        curl_setopt($curlHandle, CURLOPT_POSTFIELDS, array(
+            'userkey' => $userkey,
+            'passkey' => $passkey,
+            'to' => $telepon,
+            'message' => $message
+        ));
+        return $results = json_decode(curl_exec($curlHandle), true);
+        curl_close($curlHandle);
     }
     
     

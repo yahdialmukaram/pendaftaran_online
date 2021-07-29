@@ -231,6 +231,18 @@ class Model extends CI_Model {
         return $this->db->get()->row_array();
         
     }
+    public function cari_sekolah($id)
+    {
+        $this->db->from('table_sekolah');
+        $this->db->where('id_user', $id);
+        return $this->db->get()->row_array();        
+    }
+    public function cari_peringkat($id)
+    {
+        $this->db->from('table_peringkat');
+        $this->db->where('id_user', $id);
+        return $this->db->get()->row_array();        
+    }
 
     public function searchData($table,$reference,$id)
     {

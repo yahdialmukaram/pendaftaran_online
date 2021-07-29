@@ -18,7 +18,11 @@
 			
 			<h4 style="text-align: center;"><b> PILIH SEKOLAH TUJUAN</h4></b>
 			<h5 style="text-align: center;"><b>Silahkan pilih sekolah dibawah ini sesuai syarat dan ketentuan dengan
-				meng klik link di bawah yang telah di tentukan</b></h5>
+				meng klik link di bawah yang telah di tentukan</b></h5>	
+		</div>
+		<div class="alert alert-danger alert-dismissible">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<h5 style="text-align: center;">PERHATIKAN: untuk peringkat yang di bawah peringkat 5 dinyatakan lulus, untuk di atas peringkat 5 maaf tidak lulus.  bagi yang dinyatakan lulus untuk pendaftaran ulang bisa <br><br> langsung datang ke sekolah yang calon siswa pilih, TERIMAKASIH</h5>	
 		</div>
 		<br>
 		<div class="col-md-12">
