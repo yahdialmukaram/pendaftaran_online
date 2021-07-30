@@ -72,6 +72,8 @@
                     </ul>
                   <li><a href="<?=base_url();?>controller/v_jadwal"><i class="fa fa-clock-o"></i> Jadwal Ujian</a>
                   </li>
+                  <li><a href="<?=base_url();?>controller/v_input_berita"><i class="fa fa-upload"></i> Input Berita</a>
+                  </li>
 
                   <!-- <div class="menu_section">
                  <h3>Live On</h3>

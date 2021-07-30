@@ -1,61 +1,71 @@
 
-    
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('template/images/tanah_datar.png');">
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('<?=base_url();?>images/qur.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-            <h1 class="mb-2 bread">Infomasi</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="<?=base_url();?>c_user">Home <i class="ion-ios-arrow-forward"></i></a></span> <span><a href=""> Contact</a> <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-2 bread">Informasi Qurrata A'yun</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="<?=base_url('c_user')?>">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Informasi <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
     </section>
-
-    <div class="card-body">
-      
-      <h4 style="text-align: center;"><b>Informasi Pendaftaran</b></h4>
-      <br>
-      <table border="1">
-       <tr style="background: rgb(207, 236, 238);">
-         <td>
-          <h6><b>PPDB Online Sumatera Barat terdapat beberapa jalur yaitu :</b></h6>
-          <ul>
-            <li>Reguler SMK/SMA Berdasarkan Nilai</li>
-            <li>Jalur Prestasi</li>
-            <li>Jalur Perpindahan Tugas Orang Tua / Wali</li>
-            <li>Seluruh jalur pendaftaran PPDB SUMBAR 2020 dilakukan secara daring</li>
-          </ul>
-          <h6>
+		
+		<section class="ftco-section bg-light">
+			<div class="container">
+				<div class="row">
+          <?php
+           function limit_words($string, $word_limit){
+						$words = explode(" ",$string);
+						return implode(" ",array_splice($words,0,$word_limit));
+					}
+					$no = $this->uri->segment('3') + 1;
+          foreach ($berita as $key => $value): ?>
+          <div class="col-md-6 col-lg-4 ftco-animate">
+            <div class="blog-entry">
+            <a href="<?=base_url();?>c_user/ditails_informasi/<?= $value['id_berita']?>" class="block-20 d-flex align-items-end"><img style="width: 280px;height: 280px; border-radius:300%" src="<?=base_url();?>./uploads/original_image/<?=$value['image'];?>">
+								<div class="meta-date text-center p-12">
+                  <span class=""><?=$value['tanggal']?></span>
+                </div>
+              </a>
+              <div class="text bg-white p-4">
+                <h3 class="heading"><a href="<?=base_url();?>c_user/ditails_informasi/<?= $value['id_berita']?>"><?=$value['judul']?></a></h3>
+                <p><?=limit_words($value['isi'],30); ?></p>
+                <div class="d-flex align-items-center mt-4">
+	                <p class="mb-0"><a href="<?=base_url();?>c_user/ditails_informasi/<?= $value['id_berita']?>" class="btn btn-secondary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+	             
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endforeach;?>
+  
+        </div>
         
-          </h6>
-          <h6>Link Pendaftaran Tes Minat Bakat</h6>
-          <h5 class="text-danger">NB : Pendaftaran Calon siswa Bisa Klik Link ini (<a href="<?= base_url('c_login/registrasi');?>" target="_blank">Pendaftaran Siswa</a>)</h5> 
-          <ul class="">
-            <i>Bagi Calon Peserta didik yang sudah LOGIN atau Melakukan PENDAFTARAN. Dibolehkan untuk memilih 4 (Empat) Jurusan. Setiap Jurusan soal nya berbeda-beda. Jadi Calon Peserta didik memilih satu Jurusan terlebih dahulu, kemudian ujian.
-            Setelah selesai ujian untuk Jurusan pertama. Maka Akan kembali ke halaman awal untuk memilih Jurusan yang lainnya.
-            Ini Akan berulang selama 4 kali, jikalau Calon peserta didik memilih 4 Jurusan. Jika ada peserta yang telah menutup halaman tes minat bakatnya pada satu kali tes, maka dapat login lagi untuk melakukan test pada Jurusan ke 2 dan seterusnya
-            Untuk Hasil Ujian Tes Minat Bakat ini bisa langsung tampil dan bisa di print oleh Calon Peserta Didik.
-            NB: Kebutuhan Login Adalah Nomor Peserta dan NISN Jika tidak ada Silahkan Tanya Ke SEKOLAH ASAL nya</i>
-          </ul>
-
-          <h6><b>Persayaratan Jalur Prestasi</b></h6>
-          <ul>
-            <li>Jalur prestasi di tentukan berdasarkan nilai rapor</li>
-            <li>Sertifikat perlombaan, penghargaan di bidang akademik maunpun non-akademik pada tingkat internasional, nasioanl, provinsi, dan tingkat kabupaten/kota</li>
-            <li>Bukti atas prestasi hasil perlombaan atau penghargaan itu di terbitkan paling singlat 6 bulan, dan paling lama 3 tahun semenjak tanggal pendaftaran <b>PPDB</b></li>
-          </ul>
-
-          <h6><b>Persayaratan Jalur Perpindahan</b></h6>
-          <ul>
-            <li>Jalur pindah di tentukan berdasarkan nilai rapor</li>
-            <li>Surat keterangan pindah tugas</li>
-            <li>Surat keterangan domisi dari pemerintaha setempat</li>
-            <li>Bukti atas prestasi hasil perlombaan atau penghargaan itu di terbitkan paling singlat 6 bulan, dan paling lama 3 tahun semenjak tanggal pendaftaran <b>PPDB</b></li>
-            <li>Setiap calon siswa wajib mendaftar/register terlebih dahulu di link berikut (<a href="<?= base_url('c_login/registrasi');?>" target="_blank">Pendaftaran Siswa</a>) </li>
-          </ul>
-         </td>
-       </tr>  
-       
-    </table>
-  </div>
+        
+        <div class="row no-gutters my-5">
+         
+          	<!-- perintah pagination -->
+            <div class="row">
+            <div class="col">
+              <!--Tampilkan pagination-->
+              <?php echo $pagination; ?>
+            </div>
+          </div>
+          <!-- <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#"><i class="ion-ios-arrow-back"></i></a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><i class="ion-ios-arrow-forward"></i></a></li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+			</div>
+		</section>

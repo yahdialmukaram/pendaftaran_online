@@ -11,6 +11,13 @@ class Model extends CI_Model {
         return $this->db->get()->result_array();
         
 	}
+    public function get_berita()
+    {
+        $this->db->from('table_berita');
+        $this->db->order_by('id_berita', 'desc');
+        return $this->db->get()->result_array();
+        
+	}
     public function delete_admin($id)
     {
         $this->db->where('id_user', $id);
@@ -71,6 +78,7 @@ class Model extends CI_Model {
     {
         $this->db->insert($table, $data);
     }
+
     public function check_kuata(Type $var = null)
     {
         $this->db->from('table_jadwal');
@@ -271,7 +279,29 @@ class Model extends CI_Model {
 		return $this->db->get()->row_array();
 		
 	}
-  
+    public function save_berita($insert)
+    {
+        $this->db->insert('table_berita', $insert);
+        
+    }
+    public function delete_berita($id)
+    {
+        $this->db->where('id_berita', $id);
+        $this->db->delete('table_berita');
+        
+    }
+    public function edit_berita($id)
+    {
+        $this->db->where('id_berita',$id);
+        return $this->db->get('table_berita')->row_array();
+    }
+    public function update_berita($id, $data)
+    {
+        $this->db->where('id_berita', $id);
+        $this->db->update('table_berita', $data);
+        
+    }
+   
 }
     
   

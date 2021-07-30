@@ -7,6 +7,7 @@ class Controller extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('upload');
         $this->load->model('Model','model');
         date_default_timezone_set('Asia/Jakarta');
         //ini pnting untuk ke amanan login
@@ -256,6 +257,98 @@ class Controller extends CI_Controller {
         ));
         return $results = json_decode(curl_exec($curlHandle), true);
         curl_close($curlHandle);
+    }
+
+    public function v_input_berita()
+    {
+        $data['title']= 'halaman input berita';
+        $data['berita']= $this->model->get_berita();
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/v_input_berita', $data);
+        $this->load->view('admin/footer');        
+    }
+
+    public function upload($name)
+    {
+        $config['upload_path'] = './uploads/original_image/'; //path folder
+        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmpf'; //type pdf 
+        $config['encrypt_name'] = true; //nama yang terupload nantinya
+        
+ 
+        $this->upload->initialize($config);
+        if (!empty($_FILES[$name]['name'])) {
+            if ($this->upload->do_upload($name)) {
+                $gbr = $this->upload->data();
+               
+                $response['data'] = $gbr['file_name'];
+                $response['status'] = 'success';
+                return $response;
+            } else {
+                $response['status'] = 'error';
+                return $response;
+                // redirect('c_admin/v_input_berita');
+            }
+ 
+        } else {
+            return $response['status'] = 'image not found';
+        }
+       }
+
+    public function save_berita()
+    {   
+       $image = $this->upload('image');
+       if ($image['status']== 'success') {
+             $insert=[
+               'judul'=> htmlspecialchars($this->input->post('judul', true)),
+               'image'=> $image['data'],
+               'isi'=> htmlspecialchars($this->input->post('isi', true)),
+               'tanggal'=> date('d-m-Y, H:i:s')
+           ];
+           $this->model->save_berita($insert);
+           $this->session->set_flashdata('success', 'data berita success save');
+        //    echo json_encode($insert);
+           redirect('controller/v_input_berita');
+           
+       }
+    }
+    public function edit_berita($id)
+    {
+        $data['title']= 'halaman edit berita';
+        $data['edit_berita'] = $this->model->edit_berita($id);
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/v_edit_berita', $data);
+        $this->load->view('admin/footer');     
+        // print_r($data);
+        // echo json_encode($data);
+    }
+    public function update_berita($id)
+    {
+        $image = $this->upload('image');
+        if ($image['status'] == 'success') {
+            $data = array(
+                'judul' => $this->input->post('judul'),
+                'image' => $image['data'],
+                'isi' => $this->input->post('isi'),
+            );
+        } else {
+            $data = array(
+                'judul' => $this->input->post('judul'),
+                'isi' => $this->input->post('isi'),
+            );
+        }
+        $this->model->update_berita($id, $data);
+        $this->session->set_flashdata('success', 'Data succes di ubah');
+        redirect('controller/v_input_berita');
+    }
+    public function delete_berita(Type $var = null)
+    {
+        $id = $this->input->post('id');
+        $this->model->delete_berita($id);
+        $this->session->set_flashdata('error', 'data berita success delete');
+        
+        redirect('controller/v_input_berita');
+        
+        
     }
     
     
