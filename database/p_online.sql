@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 25, 2021 at 10:09 AM
+-- Generation Time: Jul 31, 2021 at 02:10 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -21,6 +21,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `p_online`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_berita`
+--
+
+CREATE TABLE `table_berita` (
+  `id_berita` int(11) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `isi` text NOT NULL,
+  `tanggal` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_berita`
+--
+
+INSERT INTO `table_berita` (`id_berita`, `judul`, `image`, `isi`, `tanggal`) VALUES
+(2, 'gotoroyomg mesjid', 'dd864d59f4feb87d8e7717cf110472b5.PNG', 'ok', '30-07-2021, 17:32:23'),
+(3, 'gotoroyomg mesjid', '0cbfda9b17bff6d6c40de654fe3ebc25.PNG', 'mesjid mesjid mesjid mesjid mesjid mesjid mesjid mesjid mesjid mesjid mesjid mesjid mesjid mesjid mesjid mesjid ', '31-07-2021, 00:40:30'),
+(4, 'ketaping malalo', 'a62b1d3d04211ac36d0edf32a3b014b5.PNG', ' mesjid mesjid mesjid duo koto', '31-07-2021, 00:42:09'),
+(5, 'lomab juara satu tingkat profinsi sumtra se smutra barat', '61de3eb5b56017346393130dd238aa33.PNG', 'ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.', '31-07-2021, 02:08:09'),
+(6, 'tidak turun hujan', '1676d557d6e606224afc4ef020e6ad82.PNG', 'padang tidak akan hujan dlama beberapa hari ini', '31-07-2021, 02:25:04'),
+(7, 'puasa ok ok', '8be0bbe21eaa5b961232ddd7bb0c426f.PNG', 'ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.', '31-07-2021, 02:25:30'),
+(8, 'belajar bersama', 'aea10da5200139f018bf03e931aab596.PNG', 'ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah. ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.', '31-07-2021, 02:25:42'),
+(9, 'puasa ok ok', '6d813eb2d6072b4958b4ad4c71ed802e.PNG', 'ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.', '31-07-2021, 02:25:55'),
+(10, 'awal tarawih puasa 2021', 'ca55105fe9115933f3502128232e7ce6.PNG', 'ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.', '31-07-2021, 02:26:10'),
+(11, 'belajar bersama', 'da0e941cd0cfda0d37559301d3d52d1a.PNG', 'ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, semoga anak kita selalu di beri hidayah oleh allah . amin ya allah.', '31-07-2021, 02:26:24'),
+(12, 'belajar bersama', '94b558a2aa5252e08ecd7131c56143c8.PNG', ' ada yang buisa lomba di padang panjnag dan sekolah tersebt emenangkan lomba tersebut,, dan di akan menlanggeng ke tinmglat profinsi dan tingkat nasional, ', '31-07-2021, 02:26:38'),
+(16, 'yahdi al mukkaram', '3293e8f60f219b8451c30b03905321b2.PNG', ' almuk', '31-07-2021, 04:03:00');
 
 -- --------------------------------------------------------
 
@@ -63,10 +95,10 @@ CREATE TABLE `table_nilai` (
 --
 
 INSERT INTO `table_nilai` (`id_nilai`, `id_user`, `qiroah`, `wawancara_ortu`, `paquyuban`, `nilai_akhir`, `status_sms`) VALUES
-(18, 21, '40', '55', '44', '46.333333333333336', ''),
-(20, 19, '60', '77', '78', '71.66666666666667', ''),
-(21, 20, '70', '77', '88', '78.33333333333333', ''),
-(24, 13, '66', '77', '88', '77', '0');
+(18, 21, '40', '55', '44', '46.333333333333336', '1'),
+(20, 19, '60', '77', '78', '71.66666666666667', '0'),
+(21, 20, '70', '77', '88', '78.33333333333333', '1'),
+(24, 13, '66', '77', '88', '77', '1');
 
 -- --------------------------------------------------------
 
@@ -103,6 +135,13 @@ CREATE TABLE `table_saran` (
   `subject` varchar(200) NOT NULL,
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_saran`
+--
+
+INSERT INTO `table_saran` (`id_saran`, `nama`, `email`, `subject`, `message`) VALUES
+(1, 'yahdi almukaram', 'yahdialmukaram03@gmail.com', 'masalah login', 'ok');
 
 -- --------------------------------------------------------
 
@@ -215,6 +254,12 @@ INSERT INTO `table_user` (`id_user`, `username`, `email`, `password`, `waktu`, `
 --
 
 --
+-- Indexes for table `table_berita`
+--
+ALTER TABLE `table_berita`
+  ADD PRIMARY KEY (`id_berita`);
+
+--
 -- Indexes for table `table_jadwal`
 --
 ALTER TABLE `table_jadwal`
@@ -261,6 +306,12 @@ ALTER TABLE `table_user`
 --
 
 --
+-- AUTO_INCREMENT for table `table_berita`
+--
+ALTER TABLE `table_berita`
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT for table `table_jadwal`
 --
 ALTER TABLE `table_jadwal`
@@ -270,37 +321,37 @@ ALTER TABLE `table_jadwal`
 -- AUTO_INCREMENT for table `table_nilai`
 --
 ALTER TABLE `table_nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `table_peringkat`
 --
 ALTER TABLE `table_peringkat`
-  MODIFY `id_peringkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_peringkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `table_saran`
 --
 ALTER TABLE `table_saran`
-  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `table_sekolah`
 --
 ALTER TABLE `table_sekolah`
-  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `table_siswa`
 --
 ALTER TABLE `table_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `table_user`
 --
 ALTER TABLE `table_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

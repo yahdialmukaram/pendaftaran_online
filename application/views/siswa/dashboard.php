@@ -66,7 +66,7 @@
 			<div class="alert alert-success text-center" role="alert">
 				<strong>Peringkat</strong>
 				<h5>Peringkat Anda : 
-					<?php if ($peringkat['peringkat']==null) {
+					<?php if ($peringkat==null) {
 						echo"Peringkat Belum Ada";
 					} else {
 						echo $peringkat['peringkat'];
@@ -107,9 +107,13 @@
                   <h5 style="text-align: center;">SDIT Qurrata A'yun</i>
 				  <br>
 				  <br>
+				  <?php if($state_register==true):?>
 				  <?php if ($status_daftar==false):?>
 				  <a href="<?=base_url('c_siswa/v_sdit1');?>" class="btn btn-success btn-sm sembunyi">Klik di sini </a>
 				  <?php endif; ?>
+				  <?php elseif($state_register==false):?>
+					<a href="#" class="btn btn-success btn-sm sembunyi"  data-toggle="modal" data-target="#daftar-tutup">Klik di sini </a>
+					<?php endif; ?>
                   </h5>
                 </div>
               </div>
@@ -120,9 +124,13 @@
                   <h5 style="text-align: center;">SDIT Qurrata A'yun 2 Lintau</i>
 				  <br>
 				  <br>  
+				  <?php if($state_register==true):?>
 				  <?php if ($status_daftar==false):?>
 				  <a href="<?=base_url('c_siswa/v_sdit2');?>" class="btn btn-success btn-sm sembunyi">Klik di sini </a>
 				  <?php endif; ?>
+				  <?php elseif($state_register==false):?>
+					<a href="#" class="btn btn-success btn-sm sembunyi"  data-toggle="modal" data-target="#daftar-tutup">Klik di sini </a>
+					<?php endif; ?>
                   </h5>
                 </div>
               </div>
@@ -134,9 +142,13 @@
                   <h5 style="text-align: center;">SDIT Qurrata A'yun 3 Batusangkar</i>
 				  <br>
 				  <br> 
+				  <?php if($state_register==true):?>
 				  <?php if ($status_daftar==false):?>
 				  <a href="<?=base_url('c_siswa/v_sdit3');?>" class="btn btn-success btn-sm sembunyi">Klik di sini </a>
 				  <?php endif; ?>
+				  <?php elseif($state_register==false):?>
+					<a href="#" class="btn btn-success btn-sm sembunyi"  data-toggle="modal" data-target="#daftar-tutup">Klik di sini </a>
+					<?php endif; ?>
                   </h5>
                 </div>
               </div>
@@ -156,6 +168,26 @@
 </div>
 
 
+
+<!-- Modal -->
+<div class="modal fade" id="daftar-tutup" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+			</div>
+			<div class="modal-body">
+				Maaf Pendaftaran Tutup
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="persaratan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">

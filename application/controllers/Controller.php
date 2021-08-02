@@ -220,7 +220,7 @@ class Controller extends CI_Controller {
 
 		if ($jenis=='verifikasi') {
             $this->model->update_status($id,['status_sms'=>1]);
-            $message='Anda Terdaftar ke:'.$cari_sekolah['nama_sekolah'].','.' Peringkat hasil ujian atas nama '.$check_number['nama'].' adalah peringkat:'. $cari_peringkat['peringkat'] ." " .'PERHATIKAN: untuk peringkat yang di bawah peringkat 5 dinyatakan lulus, untuk di atas peringkat 5 maaf tidak lulus.  BAGI YANG LULUS UNTUK PENDAFTARAN ULANG BISA LANGSUNG DATANG KE SEKOLAH YANG CALON SISWA DAFTAR, TERIMAKASIH'; 
+            $message='Anda Terdaftar ke:'.$cari_sekolah['nama_sekolah'].','.' Peringkat hasil ujian atas nama '.$check_number['nama'].' adalah peringkat:'. $cari_peringkat['peringkat'] ." " .'PERHATIKAN: untuk peringkat yang di atas peringkat 5 dinyatakan lulus, bagi yang lulus pendaftaran ulang bisa langsung datang ke sekolah yang pilih, TERIMAKASIH'; 
             $send_message=$this->sms($check_number['no_hp_ortu'],$message);
 			$this->session->set_flashdata('success', ' Verifikasi SMS Berhasil Terkirim');
 		} 
@@ -237,7 +237,7 @@ class Controller extends CI_Controller {
     {
         
         $userkey = '3b5371593b81';
-        $passkey = '5bc86e097300c9279c10fb00';
+        $passkey = '1bd6b52fa27a68908d317d55';
         $telepon = $nohp;
         $message = $sms;
         $url = 'https://console.zenziva.net/reguler/api/sendsms/';

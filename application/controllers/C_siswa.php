@@ -140,16 +140,17 @@ class C_siswa extends CI_Controller {
 
         $data['peringkat']=$this->model->checkPeringkatUser($id_user);
         $data['find_nik'] = $this->model_siswa->find_nik('table_siswa','nisn')->row_array();
-		$data['status_daftar']=$this->model_siswa->find_data('table_sekolah','id_user',$this->session->userdata('id_user'))->row_array()['id_user'];
+		$data['status_daftar']=$this->model_siswa->find_data('table_sekolah','id_user',$this->session->userdata('id_user'))->row_array();
         $data['nilai']= $this->model->get_nilai_siswa('table_nilai','id_user');
 		
 		// use for register date
 		
 		$t      =time();
 		$day    =28;   
-		$month  =7;
+		$month  =8;
 		$year   =2021;
 		$days   =(int)((mktime (0,0,0,$month,$day,$year) - time())/86400);
+	
 		// echo "Pendaftaran tutup <b>$days</b> hari lagi, sampai tanggal $day/$month/$year";
         // echo json_encode($days);
 		$data['date_close']=[
@@ -160,17 +161,15 @@ class C_siswa extends CI_Controller {
 		if ($days > 0) {
 			$data['state_register']=true;
 			$data['time_remaining']=$days;            
-        }elseif ($days == 0) {
-			$data['state_register']=true;
-			$data['time_remaining']=$days;           
-        } else {
+        }elseif ($days <=0) {
 			$data['state_register']=false;
-		}
+			$data['time_remaining']=$days;           
+        } 
         $data['nilai']= $this->model->get_nilai();
         $this->load->view('siswa/header',$data);
         $this->load->view('siswa/dashboard', $data);
         $this->load->view('siswa/footer');   
-        // echo json_encode($status_daftar);
+        // echo json_encode($data);
     }
     
     public function v_sdit1()
@@ -234,6 +233,7 @@ class C_siswa extends CI_Controller {
 
         redirect('c_siswa/dashboard');    
     }
+	
 
         $image  = $this->upload('akta_kelahiran');
         $image1  = $this->upload('sk_domisili');
@@ -295,7 +295,7 @@ class C_siswa extends CI_Controller {
     {
         
         $userkey = '3b5371593b81';
-        $passkey = '5bc86e097300c9279c10fb00';
+        $passkey = '1bd6b52fa27a68908d317d55';
         $telepon = $nohp;
         $message = $sms;
         $url = 'https://console.zenziva.net/reguler/api/sendsms/';
