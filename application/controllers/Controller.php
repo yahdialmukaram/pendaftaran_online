@@ -207,6 +207,15 @@ class Controller extends CI_Controller {
         $this->session->set_flashdata('error', 'Data Saran Success Di Delete');
         
         redirect('controller/v_saran');
+    }
+    public function delete_jadwal()
+    {
+        $id= $this->input->post('id');
+        $this->model->delete_jadwal($id);
+        $this->session->set_flashdata('error', 'Jadwal di hapus');
+        
+        redirect('controller/v_jadwal');
+        
         
         
     }

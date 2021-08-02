@@ -301,6 +301,12 @@ class Model extends CI_Model {
         $this->db->update('table_berita', $data);
         
     }
+    public function delete_jadwal($id)
+    {
+        $this->db->where('id_jadwal', $id);
+        $this->db->delete('table_jadwal');
+        
+    }
    
 }
     
