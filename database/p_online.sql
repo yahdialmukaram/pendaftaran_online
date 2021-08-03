@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 31, 2021 at 02:10 AM
+-- Generation Time: Aug 03, 2021 at 03:44 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.19
 
@@ -72,7 +72,7 @@ CREATE TABLE `table_jadwal` (
 --
 
 INSERT INTO `table_jadwal` (`id_jadwal`, `jadwal`, `kouta`, `kouta_terisi`) VALUES
-(21, '07/18/2021 7:36 PM sampai 07/15/2021 7:36 PM', '100', '33');
+(21, '07/18/2021 7:36 PM sampai 07/15/2021 7:36 PM', '100', '38');
 
 -- --------------------------------------------------------
 
@@ -95,10 +95,11 @@ CREATE TABLE `table_nilai` (
 --
 
 INSERT INTO `table_nilai` (`id_nilai`, `id_user`, `qiroah`, `wawancara_ortu`, `paquyuban`, `nilai_akhir`, `status_sms`) VALUES
-(18, 21, '40', '55', '44', '46.333333333333336', '1'),
+(18, 21, '100', '55', '55', '70', '1'),
 (20, 19, '60', '77', '78', '71.66666666666667', '0'),
-(21, 20, '70', '77', '88', '78.33333333333333', '1'),
-(24, 13, '66', '77', '88', '77', '1');
+(21, 20, '50', '77', '88', '71.666666666667', '1'),
+(27, 31, '88', '90', '100', '92.666666666667', '0'),
+(30, 38, '80', '80', '80', '80', '1');
 
 -- --------------------------------------------------------
 
@@ -117,10 +118,11 @@ CREATE TABLE `table_peringkat` (
 --
 
 INSERT INTO `table_peringkat` (`id_peringkat`, `id_user`, `peringkat`) VALUES
-(1, '20', '1'),
-(2, '13', '2'),
-(3, '19', '3'),
-(4, '21', '4');
+(1, '31', '1'),
+(2, '38', '2'),
+(3, '20', '3'),
+(4, '19', '4'),
+(5, '21', '5');
 
 -- --------------------------------------------------------
 
@@ -166,7 +168,9 @@ INSERT INTO `table_sekolah` (`id_sekolah`, `id_user`, `id_jadwal`, `nama_sekolah
 (33, '21', '21', 'SDIT Qurrata A\'yun Batusangkar', 'afb164db37eeb0a0bb630c52e286fec6.pdf', '0ac243fc43dc376d9c6996aea731031c.pdf'),
 (35, '19', '21', 'SDIT Qurrata A\'yun 3 Batusangkar', 'd022189bd7414bd36d344bf483453535.pdf', 'b195f67487c6210451d39f71a1a20648.pdf'),
 (40, '20', '21', 'SDIT Qurrata A\'yun 2 Lintau', 'adf3786a6b77ebdd2a5549e72269a9fa.pdf', '0e35bc493acc26fe18ca1267153dcc08.pdf'),
-(62, '13', '21', 'SDIT Qurrata A\'yun Batusangkar', '9f23273697d1c3798ccaba5f26aef69a.pdf', 'fc4fb675593433e62262fd6d75b8c9ea.pdf');
+(62, '13', '21', 'SDIT Qurrata A\'yun Batusangkar', '9f23273697d1c3798ccaba5f26aef69a.pdf', 'fc4fb675593433e62262fd6d75b8c9ea.pdf'),
+(65, '31', '21', 'SDIT Qurrata A\'yun 3 Batusangkar', '341b07b3f041793f38ab1b7eaed27c33.pdf', '75f4df14cd1435ca27a58c8d8a85d9c1.pdf'),
+(67, '38', '21', 'SDIT Qurrata A\'yun 2 Lintau', '87f39525ca5133dc79cbf16518a7abc5.pdf', '74229475d3a2b73470e7291828c83119.pdf');
 
 -- --------------------------------------------------------
 
@@ -219,7 +223,9 @@ INSERT INTO `table_siswa` (`id_siswa`, `id_user`, `no_registrasi`, `nik`, `nama`
 (24, 19, '510072021001', '1771070307960001', 'sri', 'padang', 'padang panjang', '1996-07-03', 'Perempuan', '1', '2', 'minang', '1-2 km', 'a', 'normal', 'tidak ada', 'tidak ada', 'lomba tikat provinsi', '2 juz', 'fasih', 'Indonesia', 'kaka', '082169074845', 'Islam', 'Menikah', 'padang', 'Kontrakan', 'SD', 'Tni/Polri', 'Rp. 1000.000.00 perbulan', 'nadia', 'SD', 'Pedagang', 'Rp. 500.000.00 perbulan'),
 (25, 21, '510072021002', '1771070307960002', 'nadia', 'malalo', 'padang panjang', '13.10.2020', 'Perempuan', '6', '3', 'indinesia', '5-6 km', 'o', 'normal', 'tidak ada', 'tidak ada', 'lomba tikat provinsi', '2 juz', 'fasih', 'Indonesia', 'arjalis', '082169074845', 'Islam', 'Menikah', 'padang', 'Kontrakan', 'SD', 'Tni/Polri', 'Rp. 500.000.00 perbulan', 'kaka', 'SD', 'Pedagang', 'Rp. 500.000.00 perbulan'),
 (28, 20, '519072021005', '1304041208150022', 'anggi', 'padang', 'mama', '1996-07-03', 'Laki Laki', '1', '1', 'minang', '1-2 km', 'a', 'non disabilitas', 'tidak ada', 'tidak ada', 'lomba tikat provinsi', '3 juz', 'fasih', 'Indonesia', 'angga', '082169074845', 'Islam', 'Menikah', 'padang', 'Kontrakan', 'SD', 'Tni/Polri', 'Rp. 500.000.00 perbulan', 'wewe', 'SD', 'Pedagang', 'Rp. 500.000.00 perbulan'),
-(29, 13, '520072021006', '1304041208150012', 'almukaram', '', '', '', 'Laki Laki', '1', '1', 'minang', '1-2 km', 'a', 'non disabilitas', '', '', '', '', '', '', '', '', 'Islam', 'Menikah', '', 'Kontrakan', 'SD', 'Tni/Polri', 'Rp. 500.000.00 perbulan', '', 'SD', 'Pedagang', 'Rp. 500.000.00 perbulan');
+(29, 13, '520072021006', '1304041208150012', 'almukaram', '', '', '', 'Laki Laki', '1', '1', 'minang', '1-2 km', 'a', 'non disabilitas', '', '', '', '', '', '', '', '', 'Islam', 'Menikah', '', 'Kontrakan', 'SD', 'Tni/Polri', 'Rp. 500.000.00 perbulan', '', 'SD', 'Pedagang', 'Rp. 500.000.00 perbulan'),
+(32, 31, '503082021007', '13040412081503', 'lutvi', 'padang', 'padang panjang', '03-08-2021', 'Laki Laki', '1', '1', 'minang', '1-2 km', 'a', 'non disabilitas', 'tidak ada', 'tidak ada', 'lomba tikat provinsi', '3 juz', 'fasih', 'Indonesia', 'paralis', '+6282169074845', 'Islam', 'Menikah', 'padang', 'Kontrakan', 'SD', 'Tni/Polri', 'Rp. 500.000.00 perbulan', 'darnis', 'SD', 'Pedagang', 'Rp. 500.000.00 perbulan'),
+(34, 38, '503082021008', '1304041288150002', 'andre', 'batusangkar', 'padang panjang', '03-08-2021', 'Laki Laki', '1', '1', 'minang', '1-2 km', 'a', 'non disabilitas', 'tidak ada', 'tidak ada', 'lomba tikat provinsi', '3 juz', 'fasih', 'Indonesia', 'paralis', '082169074845', 'Islam', 'Menikah', 'padang', 'Kontrakan', 'SD', 'Tni/Polri', 'Rp. 500.000.00 perbulan', 'darnis', 'SD', 'Pedagang', 'Rp. 500.000.00 perbulan');
 
 -- --------------------------------------------------------
 
@@ -233,21 +239,27 @@ CREATE TABLE `table_user` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `waktu` varchar(255) NOT NULL,
-  `level` varchar(255) NOT NULL
+  `level` varchar(255) NOT NULL,
+  `verifikator` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `table_user`
 --
 
-INSERT INTO `table_user` (`id_user`, `username`, `email`, `password`, `waktu`, `level`) VALUES
-(6, 'yahdi', 'yahdialmukaram03@gmail.com', '58d432c74ad12fc7d0f30300771bec18', '08-07-2021, 23:39:29', 'admin'),
-(13, 'almukaram', 'almukaram@gmail.com', 'ad39e69e28010c11ce8c9bc5997a8473', '09-07-2021, 00:38:38', 'siswa'),
-(19, 'sri', 'sri@gmail.com', 'd1565ebd8247bbb01472f80e24ad29b6', '09-07-2021, 16:48:54', 'siswa'),
-(20, 'anggi', 'anggi@gmail.com', '4a283e1f5eb8628c8631718fe87f5917', '10-07-2021, 01:39:53', 'siswa'),
-(21, 'nadia', 'nadia@gmail.com', 'a2e8cea3392da09d1d31be3fca68efed', '10-07-2021, 08:51:56', 'siswa'),
-(23, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '10-07-2021, 17:17:39', 'admin'),
-(28, 'lala', 'lala@gmail.com', '2e3817293fc275dbee74bd71ce6eb056', '20-07-2021, 17:36:19', 'siswa');
+INSERT INTO `table_user` (`id_user`, `username`, `email`, `password`, `waktu`, `level`, `verifikator`) VALUES
+(6, 'yahdi', 'yahdialmukaram03@gmail.com', '58d432c74ad12fc7d0f30300771bec18', '08-07-2021, 23:39:29', 'admin', ''),
+(13, 'almukaram', 'almukaram@gmail.com', 'ad39e69e28010c11ce8c9bc5997a8473', '09-07-2021, 00:38:38', 'siswa', ''),
+(19, 'sri', 'sri@gmail.com', 'd1565ebd8247bbb01472f80e24ad29b6', '09-07-2021, 16:48:54', 'siswa', ''),
+(20, 'anggi', 'anggi@gmail.com', '4a283e1f5eb8628c8631718fe87f5917', '10-07-2021, 01:39:53', 'siswa', ''),
+(21, 'nadia', 'nadia@gmail.com', 'a2e8cea3392da09d1d31be3fca68efed', '10-07-2021, 08:51:56', 'siswa', ''),
+(23, 'admin', 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '10-07-2021, 17:17:39', 'admin', ''),
+(28, 'lala', 'lala@gmail.com', '2e3817293fc275dbee74bd71ce6eb056', '20-07-2021, 17:36:19', 'siswa', ''),
+(31, 'lutvi', 'lutvi@gmail.com', '7e96f0a92e84e79e04c4da1c83b64755', '03-08-2021, 21:18:36', 'siswa', ''),
+(34, 'wancara', 'wancara@gmail.com', '5254ea2f5b180e8a5ad54df5471158b8', '03-08-2021, 22:04:02', 'guru', 'wawancara_ortu'),
+(35, 'paquyuban', 'paquyuban@gmail.com', 'cabf5196d077b8d5911dd08eefef3be3', '03-08-2021, 22:07:19', 'guru', 'paquyuban'),
+(36, 'qiroah', 'qiroah@gmail.com', 'c3fcec78442e5abfc6f805dfb13de542', '03-08-2021, 22:11:45', 'guru', 'qiroah'),
+(38, 'andre', 'andre@gmail.com', '19984dcaea13176bbb694f62ba6b5b35', '03-08-2021, 22:24:03', 'siswa', '');
 
 --
 -- Indexes for dumped tables
@@ -321,13 +333,13 @@ ALTER TABLE `table_jadwal`
 -- AUTO_INCREMENT for table `table_nilai`
 --
 ALTER TABLE `table_nilai`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `table_peringkat`
 --
 ALTER TABLE `table_peringkat`
-  MODIFY `id_peringkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_peringkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `table_saran`
@@ -339,19 +351,19 @@ ALTER TABLE `table_saran`
 -- AUTO_INCREMENT for table `table_sekolah`
 --
 ALTER TABLE `table_sekolah`
-  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_sekolah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `table_siswa`
 --
 ALTER TABLE `table_siswa`
-  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_siswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `table_user`
 --
 ALTER TABLE `table_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
