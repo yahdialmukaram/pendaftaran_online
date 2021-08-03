@@ -46,7 +46,7 @@
 									<th style="width: 15%;">No Pendaftaran</th>
 									<th style="width: 30%;">Nama Siswa</th>
 									<th>Sekolah Tujuan Daftarh</th>
-									<th style="width: 15%;">Entri Nilai Siswa</th>
+									<!-- <th style="width: 15%;">Entri Nilai Siswa</th> -->
 									</th>
 
 								</tr>
@@ -59,10 +59,10 @@
 									<td><?=$value['no_registrasi']?></td>
 									<td><?=$value['nama']?></td>
 									<td><?=$value['nama_sekolah']?></td>
-									<td> <a href="#" class="btn btn-primary btn-sm beri-nilai" data-name="<?=$value['nama']?>"
+									<!-- <td> <a href="#" class="btn btn-primary btn-sm beri-nilai" data-name="<?=$value['nama']?>"
 											data-id="<?=$value['id_user']?>" data-pendaftaran="<?=$value['no_registrasi']?>"> <i
 												class="fa fa-plus"></i>
-											Entri Nilai Siswa</a> </td>
+											Entri Nilai Siswa</a> </td> -->
 								</tr>
 							</tbody>
 							<?php endforeach; ?>

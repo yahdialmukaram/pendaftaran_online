@@ -74,6 +74,11 @@ class C_login extends CI_Controller
                 
                 redirect('c_siswa');
                 
+            }elseif ($this->session->userdata('level')=='guru') {
+                
+                redirect('c_guru');
+                
+            
             }
 
         }

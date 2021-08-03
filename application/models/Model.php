@@ -139,11 +139,12 @@ class Model extends CI_Model {
         $this->db->from('table_nilai');
         $this->db->order_by('nilai_akhir', 'desc');
         $this->db->join('table_siswa', 'table_siswa.id_user = table_nilai.id_user', 'left');  
+        $this->db->join('table_sekolah', 'table_nilai.id_user = table_sekolah.id_user', 'left');
+         if ($this->session->userdata('level')=='admin') {
            $this->db->join('table_peringkat', 'table_nilai.id_user = table_peringkat.id_user');
-        
+         }
         return $this->db->get()->result_array();
-        
-        
+    
     }
     public function get_nilai_siswa()
     {
@@ -162,6 +163,16 @@ class Model extends CI_Model {
         $this->db->insert($table, $object);
         
     }
+    public function save_nilai_jenis_tes($table, $object)
+    {
+        $this->db->insert($table, $object);
+        
+    }
+    // public function save_nilai($table, $object)
+    // {
+    //     $this->db->insert($table, $object);
+        
+    // }
 
     public function check_id_user($id_user)
     {

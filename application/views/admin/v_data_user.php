@@ -48,6 +48,9 @@
                     <button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#exampleModal">
                     Tambah Admin Sistem
                   </button>
+                    <button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#data-guru">
+                    Tambah Guru
+                  </button>
                     <div class="x_content">
 
                         <table id="datatable" class="table table-striped table-bordered">
@@ -80,9 +83,10 @@
                                         <?=$value['waktu'];?>
                                     </td>
                                     <td>
-                                        <?=$value['level'];?>
+                                        <?=$value['level'];?> 
+                                        <?=$value['verifikator'];?>
                                     </td>
-                                    <td>
+                                     <td>
                                         <a href="#" onclick="hapus_admin(<?=$value['id_user']?>);" class="btn btn-danger btn-xs"> <i class="fa fa-trash"> Delete</i> </a>
                                     </td>
                                 </tr>
@@ -141,6 +145,71 @@
               </select>
                         </div>
                     </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="data-guru" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Guru</h5>
+            </div>
+            <div class="modal-body">
+
+                <form action="<?=base_url();?>controller/save_guru" method="POST" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Username</label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <input type="text" name="username" class="form-control" required placeholder="masukan username">
+                            <small>  <font color="red">username wajib isi</font></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Email</label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <input type="email" name="email" class="form-control" required placeholder="masukan email">
+                            <small>  <font color="red">email wajib isi</font></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Password</label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <input type="password" name="password" class="form-control" required placeholder="masukan password">
+                            <small>  <font color="red">password wajib isi</font></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Level
+                            </label>
+                        <div class="col-md-3 col-sm-9 col-xs-12">
+                            <select name="level" id="" class="form-control">
+                                    <option>guru</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-12 col-sm-3 col-xs-12">Jenis Guru</label>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <select name="verifikator" id="" class="form-control">
+                                  <option value="qiroah">Qiroah</option>
+                                  <option value="wawancara_ortu">wawancara orang tua</option>
+                                  <option value="paquyuban">paquyuban</option>
+                              </select>
+                        </div>
+                    </div>
+
             </div>
 
             <div class="modal-footer">

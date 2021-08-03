@@ -226,6 +226,20 @@ class C_siswa extends CI_Controller {
     public function save_pendaftaran()
     {
         
+        // $id = $this->input->post('id_user');
+        
+        $data =[
+            'id_user'=>$this->session->userdata('id_user'),
+            'qiroah'=> 0,
+            'wawancara_ortu'=> 0,
+            'paquyuban'=> 0,
+            'nilai_akhir'=> 0,
+            'status_sms'=> 0,    
+        ];
+        
+        $this->model->save_nilai('table_nilai', $data);
+        echo json_encode($data);
+
         $id_user =    $this->session->userdata('id_user');
         $check_id_user=$this->model->check_user($id_user);
         if ($check_id_user>0) {
@@ -234,7 +248,6 @@ class C_siswa extends CI_Controller {
         redirect('c_siswa/dashboard');    
     }
 	
-
         $image  = $this->upload('akta_kelahiran');
         $image1  = $this->upload('sk_domisili');
         if ($image ['status']=='success' and $image1['status']=='success') {

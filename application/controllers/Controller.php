@@ -112,6 +112,22 @@ class Controller extends CI_Controller {
         redirect('controller/v_data_user');
 
     }
+    public function save_guru()
+    {
+        $data = [
+            'username'=> $this->input->post('username'),
+            'password'=> md5($this->input->post('password')),
+            'email'=> $this->input->post('email'),
+            'waktu' => date('d-m-Y, H:i:s'),
+            'level'=> $this->input->post('level'),  
+            'verifikator'=> $this->input->post('verifikator'),  
+        ];
+        $this->model->add_admin($data);
+        $this->session->set_flashdata('success', 'admin sistem berhasil di tambah');
+        
+        redirect('controller/v_data_user');
+
+    }
 
     public function delete_admin()
     {
@@ -229,9 +245,9 @@ class Controller extends CI_Controller {
 
 		if ($jenis=='verifikasi') {
             $this->model->update_status($id,['status_sms'=>1]);
-            $message='Anda Terdaftar ke:'.$cari_sekolah['nama_sekolah'].','.' Peringkat hasil ujian atas nama '.$check_number['nama'].' adalah peringkat:'. $cari_peringkat['peringkat'] ." " .'PERHATIKAN: untuk peringkat yang di atas peringkat 5 dinyatakan lulus, bagi yang lulus pendaftaran ulang bisa langsung datang ke sekolah yang pilih, TERIMAKASIH'; 
+            $message='Anda Terdaftar ke:'.$cari_sekolah['nama_sekolah'].','.' Peringkat ujian atas nama '.$check_number['nama'].' adalah peringkat:'. $cari_peringkat['peringkat'] ." " .'PERHATIKAN: untuk peringkat yang di atas peringkat 5 dinyatakan lulus, bagi yang lulus pendaftaran ulang bisa langsung datang ke sekolah yang di pilih, TERIMAKASIH'; 
             $send_message=$this->sms($check_number['no_hp_ortu'],$message);
-			$this->session->set_flashdata('success', ' Verifikasi SMS Berhasil Terkirim');
+			$this->session->set_flashdata('success', ' verifikasi SMS berhasil terkirim');
 		} 
         // echo json_encode($message);
 		redirect('controller/v_data_nilai_siswa');
