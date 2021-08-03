@@ -188,37 +188,9 @@
 		</div>
 	</div>
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="persaratan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Persyaratan Pendaftaran Ulang</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-			</div>
-			<div class="modal-body">
-				<tr>
-					<td>1. Foto copy Raport semester akhir</td>
-					<hr>
-					<td>2. Foto copy ijazah</td>
-					<hr>
-					<td>3. Foto copy SKHU</td>
-					<hr>
-					<td>4. Photo 3x4 3 buah</td>
-					<hr>
-					<td>5. Foto & print bukti kelulusan anda</td>
-					
-				</tr>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
 </div>
+</div>
+
 
 
 <!-- 	

@@ -36,11 +36,11 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?=base_url();?>images/use.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?=base_url();?>images/guru1.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2><?= $this->session->userdata('level');?></h2>
+                <h2><?= $this->session->userdata('level');?> <?=$jenis_guru?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -87,7 +87,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?=base_url();?>images/use.jpg" alt=""><?=$this->session->userdata('level');?>
+                    <img src="<?=base_url();?>images/guru1.png" alt=""><?=$this->session->userdata('level');?> <?=$jenis_guru?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

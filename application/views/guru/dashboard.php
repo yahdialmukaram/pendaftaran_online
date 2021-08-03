@@ -34,18 +34,18 @@
                                 <div class="clearfix"></div>
                             </div>
 
-							<!-- alert simpan data -->
-		<?php if ($this->session->flashdata('success')):?>
-		<div id="pesan" class="alert alert-success" role="alert">
-			<strong><?=$this->session->flashdata('success');?></strong>
-		</div>
-		<?php endif;?>
-		<!-- aler hapus data -->
-		<?php if ($this->session->flashdata('error')):?>
-		<div id="pesan" class="alert alert-danger" role="alert">
-			<strong><?=$this->session->flashdata('error');?></strong>
-		</div>
-		<?php endif; ?>
+                            <!-- alert simpan data -->
+                            <?php if ($this->session->flashdata('success')):?>
+                            <div id="pesan" class="alert alert-success" role="alert">
+                                <strong><?=$this->session->flashdata('success');?></strong>
+                            </div>
+                            <?php endif;?>
+                            <!-- aler hapus data -->
+                            <?php if ($this->session->flashdata('error')):?>
+                            <div id="pesan" class="alert alert-danger" role="alert">
+                                <strong><?=$this->session->flashdata('error');?></strong>
+                            </div>
+                            <?php endif; ?>
 
                             <div class="x_content">
 
@@ -56,8 +56,10 @@
                                             <th style="width: 15%;">No Pendaftaran</th>
                                             <th style="width: 30%;">Nama Siswa</th>
                                             <th>Sekolah Tujuan Daftarh</th>
-                                            <th>Nilai <?=$jenis_guru?></th>
-                                            <th style="width: 15%;">Entri Nilai Siswa</th>
+                                            <th style="text-align: center;" ">Nilai
+                                                <?=$jenis_guru?>
+                                            </th>
+                                            <th style="width: 15%; ">Entri Nilai Siswa</th>
                                             </th>
 
                                         </tr>
@@ -78,15 +80,15 @@
                                             <td>
                                                 <?=$value['nama_sekolah']?>
                                             </td>
-											<td>
-												<input type="number" name="nilai" value="<?=$value[$jenis_guru]?>" readonly class="form-control">
-											</td>
-                                            <td>
-                                                <a href="#" onclick="nilai_qiroah(<?=$value['id_user']?>)" class="btn btn-primary btn-sm beri-nilai" data-id="<?=$value['id_user']?>"> <i class="fa fa-plus"></i> Entri Nilai </a>
-                                            </td>
+                                            <td style="text-align: center; ">
+                                                <input type="number " name="nilai " value="<?=$value[$jenis_guru]?>" disabled class="form-control">
+                                                </td>
+                                                <td>
+                                                    <a href="#" onclick="nilai_qiroah(<?=$value['id_user']?>)" class="btn btn-primary btn-sm beri-nilai" data-id="<?=$value['id_user']?>"> <i class="fa fa-plus"></i> Entri Nilai </a>
+                                                </td>
                                         </tr>
-                                    </tbody>
-                                    <?php endforeach; ?>
+                                        </tbody>
+                                        <?php endforeach; ?>
                                 </table>
                             </div>
                         </div>
@@ -109,7 +111,7 @@
             <div class="modal-header">
                 <!-- <h5 style="text-align: center;" class="modal-title">Data Nilai</h5> -->
                 <h5 style="text-align: center;"><b>Input Nilai <?=$jenis_guru?></b></h5>
-	
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -120,14 +122,16 @@
                     <table id="nilai" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th style="width: 1%;text-align: center;">Nilai <?=$jenis_guru?></th>
+                                <th style="width: 1%;text-align: center;">Nilai
+                                    <?=$jenis_guru?>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td style="width: 3%;" class="">
-								<input type="text" name="jenis" value="<?=$jenis_guru?>"  >
-								<input type="text" name="id_user">
+                                    <input type="text" name="jenis" value="<?=$jenis_guru?>">
+                                    <input type="text" name="id_user">
                                     <input type="number" name="nilai" id="" value="" class="form-control">
                                 </td>
                             </tr>
@@ -146,9 +150,9 @@
 <script>
     function nilai_qiroah(id) {
         $("#id").val(id);
-		$("input[name=id_user]").val(id);
-		$("input[name=jenis]").attr('hidden',true);
-		$("input[name=id_user]").attr('hidden',true);
+        $("input[name=id_user]").val(id);
+        $("input[name=jenis]").attr('hidden', true);
+        $("input[name=id_user]").attr('hidden', true);
         $("#data_nilai").modal("show");
     }
 </script>

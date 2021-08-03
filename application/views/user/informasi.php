@@ -24,7 +24,7 @@
           foreach ($berita as $key => $value): ?>
           <div class="col-md-6 col-lg-4 ftco-animate">
             <div class="blog-entry">
-            <a href="<?=base_url();?>c_user/ditails_informasi/<?= $value['id_berita']?>" class="block-20 d-flex align-items-end"><img style="width: 280px;height: 280px; border-radius:300%" src="<?=base_url();?>./uploads/original_image/<?=$value['image'];?>">
+            <a href="<?=base_url();?>c_user/ditails_informasi/<?= $value['id_berita']?>" class="block-20 d-flex align-items-end"><img style="width: 250px;height: 250px; border-radius:300%" src="<?=base_url();?>./uploads/original_image/<?=$value['image'];?>">
 								<div class="meta-date text-center p-12">
                   <span class=""><?=$value['tanggal']?></span>
                 </div>
@@ -50,7 +50,7 @@
             <div class="row">
             <div class="col">
               <!--Tampilkan pagination-->
-              <?php echo $pagination; ?>
+              <!-- <?php echo $pagination; ?> -->
             </div>
           </div>
           <!-- <div class="col text-center">

@@ -29,7 +29,7 @@ class Cetak extends CI_Controller {
     public function print_data_nilai()
     {
         $data['title'] = 'Print data nilai siswa';
-        $data['limit_lulus']=3;
+        $data['limit_lulus']=5;
         $data ['nilai'] = $this->model->get_nilai(); //manggil data di controller 
         $mpdf = new Mpdf\Mpdf(['format'=>'Legal']);
         $mpdf->AddPage('L');

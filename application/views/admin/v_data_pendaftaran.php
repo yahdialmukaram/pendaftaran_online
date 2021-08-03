@@ -45,7 +45,7 @@
 									<th style="width: 1%;">No</th>
 									<th style="width: 15%;">No Pendaftaran</th>
 									<th style="width: 30%;">Nama Siswa</th>
-									<th>Sekolah Tujuan Daftarh</th>
+									<th>Sekolah Tujuan Daftar</th>
 									<!-- <th style="width: 15%;">Entri Nilai Siswa</th> -->
 									</th>
 

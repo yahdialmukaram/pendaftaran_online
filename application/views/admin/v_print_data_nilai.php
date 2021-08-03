@@ -36,7 +36,7 @@
     <!-- <img style=" width: 80px;height: 80px;" src="uploads/original_image/lambang.png" align="left"> -->
 
 
-    <img src="uploads/original_image/lam.jpg" style="float:left; width: 90px; height: 90px;">
+    <img src="images/logosd.png" style="float:left; width: 90px; height: 90px;">
     <h3 style="text-align: center;">YAYASAN PENDIDIKAN DAN DAKWAH ISLAM WIHTADUL UMMAH<br>SEKOLAH DASAR ISLAM TERPADU
         <br>DATA NILAI SISWA SDIT QURRATA A'YUN BATUSANGKAR<br>Komp.Perum. Asam Kapeh Malana Batusangkar Telp. (0752) 711
         <hr>

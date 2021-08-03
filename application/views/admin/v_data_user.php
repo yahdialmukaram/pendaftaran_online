@@ -48,7 +48,7 @@
                     <button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#exampleModal">
                     Tambah Admin Sistem
                   </button>
-                    <button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#data-guru">
+                    <button type="button" class="btn btn-primary fa fa-user " data-toggle="modal" data-target="#data-guru">
                     Tambah Guru
                   </button>
                     <div class="x_content">
@@ -203,9 +203,9 @@
                         <label class="control-label col-md-12 col-sm-3 col-xs-12">Jenis Guru</label>
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <select name="verifikator" id="" class="form-control">
-                                  <option value="qiroah">Qiroah</option>
-                                  <option value="wawancara_ortu">wawancara orang tua</option>
-                                  <option value="paquyuban">paquyuban</option>
+                                  <option value="qiroah">Qiro'ah</option>
+                                  <option value="wawancara_ortu">Wancara orang tua</option>
+                                  <option value="paquyuban">Paquyuban</option>
                               </select>
                         </div>
                     </div>

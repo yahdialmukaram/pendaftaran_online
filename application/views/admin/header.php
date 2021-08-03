@@ -41,7 +41,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?=base_url();?>images/admin.png" alt="..." class="img-circle profile_img">
+                <img src="<?=base_url();?>images/siswa.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome, Admin</span>
@@ -105,7 +105,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?=base_url();?>images/admin.png" alt=""><?=$this->session->userdata('username');?>
+                    <img src="<?=base_url();?>images/siswa.png" alt=""><?=$this->session->userdata('username');?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
