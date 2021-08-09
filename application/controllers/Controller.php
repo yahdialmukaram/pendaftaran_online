@@ -247,17 +247,16 @@ class Controller extends CI_Controller {
         $status = ($cari_peringkat['peringkat'] <= $limit_lulus) ? 'LULUS' : 'TIDAK LULUS' ;
 
 		if ($jenis=='verifikasi') {
-            // $this->model->update_status($id,['status_sms'=>1]);
+            $this->model->update_status($id,['status_sms'=>1]);
             
-            // $message='Anda Terdaftar ke:'.$cari_sekolah['nama_sekolah'].','.' Peringkat ujian atas nama '.$check_number['nama'].' adalah peringkat:'. $cari_peringkat['peringkat'] ." " .'PERHATIKAN: untuk peringkat yang di atas peringkat 5 dinyatakan lulus, bagi yang lulus pendaftaran ulang bisa langsung datang ke sekolah yang di pilih, TERIMAKASIH'; 
             $message=' Anda mendaftar di '. $cari_sekolah ['nama_sekolah'].','.' Peringkat ujian atas nama '.$check_number['nama'].' adalah peringkat:'.
             $cari_peringkat['peringkat']. " dinyatakan " .$status. ""; 
 
             // $send_message=$this->sms($check_number['no_hp_ortu'],$message);
 			$this->session->set_flashdata('success', ' verifikasi SMS berhasil terkirim');
 		} 
-        echo json_encode($message);
-		// redirect('controller/v_data_nilai_siswa');
+        // echo json_encode($message);
+		redirect('controller/v_data_nilai_siswa');
 	}
     
     public function show_profil()
