@@ -282,7 +282,8 @@ class C_siswa extends CI_Controller {
         // echo json_encode($data);
         $this->model_siswa->save_pendaftaran('table_sekolah', $data);
         
-        $message='Terimakasih Sudah Mendaftar, nomor Pendaftaran anda :'.$check_number['no_registrasi'].' berikut jadwal ujian anda :'.$result[0]['jadwal'];
+        $message='Terimakasih Sudah Mendaftar, nomor Pendaftaran anda :'.$check_number['no_registrasi'].' berikut jadwal ujian anda :'
+        .$result[0]['jadwal'];
         $send_message=$this->sms($check_number['no_hp_ortu'],$message);
         $this->session->set_flashdata('success', 'Pendaftaran anda telah berhasil');
         // echo json_encode($message);

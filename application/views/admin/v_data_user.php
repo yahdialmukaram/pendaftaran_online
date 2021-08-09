@@ -27,7 +27,8 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Data User</h2>
+                        <h2 style="text-align: center;">Data Pengguna seluruh Account</h2>
+                        <!-- <h4 style="text-align: center;"><b>Data Pengguna Seluruh Account SDIT Qurrata A'yun Kabupaten Tanah Datar </b></h5> -->
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -83,10 +84,10 @@
                                         <?=$value['waktu'];?>
                                     </td>
                                     <td>
-                                        <?=$value['level'];?> 
-                                        <?=$value['verifikator'];?>
+                                        <?=$value['level'];?>
+                                            <?=$value['verifikator'];?>
                                     </td>
-                                     <td>
+                                    <td>
                                         <a href="#" onclick="hapus_admin(<?=$value['id_user']?>);" class="btn btn-danger btn-xs"> <i class="fa fa-trash"> Delete</i> </a>
                                     </td>
                                 </tr>

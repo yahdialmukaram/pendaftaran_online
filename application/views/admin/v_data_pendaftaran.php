@@ -27,7 +27,8 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
-						<h2>Data pendaftar</h2>
+						<h2>Data Pendaftaran Sekolah Tujuan Calon Siswa SDIT Qurrata A'yun Kabupaten Tanah Datar </h2>
+						<!-- <h4 style="text-align: center;"><b>Data Pendaftaran Sekolah Tujuan Calon Siswa SDIT Qurrata A'yun Kabupaten Tanah Datar </b></h5> -->
 						<ul class="nav navbar-right panel_toolbox">
 							<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 							</li>
@@ -39,6 +40,7 @@
 
 					<div class="x_content">
 
+					
 						<table id="datatable" class="table table-striped table-bordered">
 							<thead>
 								<tr style="background-color: rgb(27, 27, 27);">
