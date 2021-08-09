@@ -165,11 +165,18 @@ class C_siswa extends CI_Controller {
 			$data['state_register']=false;
 			$data['time_remaining']=$days;           
         } 
+
+        $limit_lulus= 5;
+        $id =$this->input->post('id');
+        
+        $data['cari_peringkat'] = $this->model->cari_peringkat($id_user);
+
+
         $data['nilai']= $this->model->get_nilai();
         $this->load->view('siswa/header',$data);
         $this->load->view('siswa/dashboard', $data);
         $this->load->view('siswa/footer');   
-        // echo json_encode($data);
+        // echo json_encode($cari_peringkat);
     }
     
     public function v_sdit1()

@@ -71,6 +71,17 @@
 					} else {
 						echo $peringkat['peringkat'];
 					} ?>
+
+					<?php
+					$limit_lulus= 5;
+
+				 ?>
+				 	<?php if ($cari_peringkat['peringkat']<=$limit_lulus):?>
+						<label for="" class="label label-success">Selamat Anda Lulus</label>
+						<?php else:?>
+						<label for="" class="label label-danger"> Maaf Anda Tidak Lulus</label>
+						<?php endif;?>
+					
 					</h5>
 			</div>
 
