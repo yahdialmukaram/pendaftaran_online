@@ -293,5 +293,3 @@
 	</div>
 </div>
 
-<!-- modal konfirmasi hapus data -->
-<div class="modal fade" id="konfirmasi" tabinde
