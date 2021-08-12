@@ -160,7 +160,7 @@
         <?= date('d-m-Y')?>
     </h5>
     <br>
-    <h5 style="text-align: right;">Petugas</h5>
+    <h5 style="text-align: right;">pimpinan</h5>
 
 </body>
 

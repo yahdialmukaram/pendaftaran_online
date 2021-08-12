@@ -34,7 +34,7 @@
 </style>
 
 <body class="login">
-
+    <!-- <img src="<?=base_url();?>images/qur.jpg" id="bg" alt="" style="position:fixed; top:0; left:0; min-width:100%; min-height:100%; "> -->
     <div>
         <a class="hiddenanchor" id="signup"></a>
         <a class="hiddenanchor" id="signin"></a>
@@ -42,10 +42,10 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
-                    <form action="<?= base_url();?>c_login/aksi_login" method='post'>
                     <td>   <img src="images/logosd.png" style="display:block; margin:auto;  width: 300px;height: 250px; border-radius:300%" align="buttom" ">
-                </td>    
-                    <h1>Login </h1>
+                </td>
+                    <form action="<?= base_url();?>c_login/aksi_login" method='post'>
+                        <h1>Login </h1>
                         <!-- alert simpan data -->
                         <?php if ($this->session->flashdata('success')):?>
                         <div id="pesan" class="alert alert-success" role="alert">
@@ -89,9 +89,9 @@
 
             <div id="register" class="animate form registration_form">
                 <section class="login_content">
+                    <td>   <img src="images/logosd.png" style="display:block; margin:auto;  width: 300px;height: 250px; border-radius:300%" align="buttom" ">
+                </td>
                     <form action="<?= base_url();?>c_login/registrasi_user" method="POST" enctype="multipart/form-data">
-                        <td>   <img src="images/logosd.png" style="display:block; margin:auto;  width: 300px;height: 250px; border-radius:300%" align="buttom" ">
-                            </td>   
                         <h1>Buat Account</h1>
 
                         <div>

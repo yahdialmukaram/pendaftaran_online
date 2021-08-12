@@ -39,7 +39,7 @@
 					    </div>
 					    <div class="col-md pr-4 d-flex topper align-items-center">
 					    	<div class="icon bg-tertiary mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
-						    <span class="text">082169074845</span>
+						    <span class="text">082391530908</span>
 					    </div>
 				    </div>
 			    </div>

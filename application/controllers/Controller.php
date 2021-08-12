@@ -248,17 +248,16 @@ class Controller extends CI_Controller {
 
 		if ($jenis=='verifikasi') {
             $this->model->update_status($id,['status_sms'=>1]);
-            
-            $message=' Anda mendaftar di '. $cari_sekolah ['nama_sekolah'].','.' Peringkat ujian atas nama '.$check_number['nama'].' adalah peringkat:'.
+        
+        $message=' Anda mendaftar di '. $cari_sekolah ['nama_sekolah'].','.' Peringkat ujian atas nama '.$check_number['nama'].' adalah peringkat:'.
             $cari_peringkat['peringkat']. " dinyatakan " .$status. ""; 
 
-            // $send_message=$this->sms($check_number['no_hp_ortu'],$message);
+            $send_message=$this->sms($check_number['no_hp_ortu'],$message);
 			$this->session->set_flashdata('success', ' verifikasi SMS berhasil terkirim');
 		} 
         // echo json_encode($message);
 		redirect('controller/v_data_nilai_siswa');
 	}
-    
     public function show_profil()
     {
         $id = $this->input->post('id');

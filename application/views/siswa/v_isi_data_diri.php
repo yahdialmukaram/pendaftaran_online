@@ -334,13 +334,15 @@
                                                     </div>
                                                 </div>
                                                 
-                                            <div class="form-group">
-													<label class="control-label col-md-3 col-sm-3 col-xs-12">Kemampuan
-														membaca Al-Qur'an
+                                           <div class="form-group">
+													<label class="control-label col-md-3 col-sm-3 col-xs-12">Kemampuan Membaca Al Qur'an
 													</label>
 													<div class="col-md-9 col-sm-9 col-xs-12">
-														<input type="text" name="kemampuan_baca" value=""
-															class="form-control" placeholder="isi kemampuan">
+														<select name="kemampuan_baca" id="" class="form-control">
+															<option>Terbata-bata</option>
+															<option>Lancar</option>
+															<option>Tajwid</option>
+														</select>
 													</div>
 												</div>
 												<div class="form-group">

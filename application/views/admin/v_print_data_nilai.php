@@ -38,7 +38,7 @@
 
     <img src="images/logosd.png" style="float:left; width: 90px; height: 90px;">
     <h3 style="text-align: center;">YAYASAN PENDIDIKAN DAN DAKWAH ISLAM WIHTADUL UMMAH<br>SEKOLAH DASAR ISLAM TERPADU
-        <br>DATA NILAI SISWA SDIT QURRATA A'YUN BATUSANGKAR TAHUN AJARAN 2021-2022<br>Komp.Perum. Asam Kapeh Malana Batusangkar Telp. (0752) 711
+        <br>DATA NILAI SISWA SDIT QURRATA A'YUN BATUSANGKAR<br>Komp.Perum. Asam Kapeh Malana Batusangkar Telp. (0752) 711
         <hr>
     </h3>
 
@@ -47,7 +47,7 @@
   <p style="text-align: center;"><u>KABUPATEN TANAH DATAR</u></p> -->
 
 
-
+<h5>Tahun Ajaran 2021-2022</h5>
     <!-- <br> -->
     <h5>Tanggal Print :
         <?= date('d-m-Y');?>
@@ -124,7 +124,7 @@ foreach ($nilai as $key => $value):?>
         <?= date('d-m-Y')?>
     </h5>
     <br>
-    <h5 style="text-align: right;">Pimpinan</h5>
+    <h5 style="text-align: right;">pimpinan</h5>
 
 </body>
 

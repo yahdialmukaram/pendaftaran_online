@@ -27,8 +27,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Data Calon Siswa SDIT Qurrata A'yun Kabupaten Tanah Datar </h2>
-                        <!-- <h4 style="text-align: center;"><b>Data Calon Siswa SDIT Qurrata A'yun Kabupaten Tanah Datar </b></h5> -->
+                        <h2>Data Keseluruhan Calon Siswa</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -39,7 +38,7 @@
                         <div class="clearfix"></div>
                     </div>
 
-                    <a href="<?=base_url();?>cetak/print_data_siswa" target="_blank" class="btn btn-warning btn-sm fa fa-print"> Print Data Siswa</a>
+                    <a href="<?=base_url();?>cetak/print_data_siswa" target="_blank" class="btn btn-warning btn-sm fa fa-print"> Print Seluruh Data Siswa</a>
                     <div class="x_content">
 
                         <table id="datatable" class="table table-striped table-bordered">

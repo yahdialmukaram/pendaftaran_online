@@ -27,8 +27,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Data Nilai Pendaftaran Calon Siswa SDIT Qurrata A'yun Kabupaten Tanah Datar </h2>
-                        <!-- <h4 style="text-align: center;"><b>Data Nilai Pendaftaran Calon Siswa SDIT Qurrata A'yun Kabupaten Tanah Datar </b></h4> -->
+                        <h2>Data Seluruh Nilai Calon Siswa</h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -38,8 +37,7 @@
                         <div class="clearfix"></div>
                     </div>
 
-                   
-                    <a href="<?=base_url();?>cetak/print_data_nilai" target="_blank" class="btn btn-warning btn-sm fa fa-print"> Print Data Keluaran Nilai</a>
+                    <a href="<?=base_url();?>cetak/print_data_nilai" target="_blank" class="btn btn-warning btn-sm fa fa-print"> Print Data Pengeluaran Nilai</a>
                     <div class="x_content">
 
                         <table id="datatable" class="table table-striped table-bordered">
@@ -50,7 +48,7 @@
                                     <th>Nama Siswa</th>
                                     <th>Tes Qiroah</th>
                                     <th>Wawancara Ortu</th>
-                                    <th>Paquyuban</th>
+                                    <th>Paguyuban</th>
                                     <th>Nilai Akhir</th>
                                     <th>Rangking</th>
                                     <th>Status</th>
@@ -60,53 +58,53 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no =1 ;
+                            <?php $no =1 ;
                         foreach ($nilai as $key => $value):?>
 
-                                <tr>
+                                    <tr>
 
-                                    <td>
-                                        <?= $no++?>
-                                    </td>
-                                    <td>
-                                        <?= $value['no_registrasi']?>
-                                    </td>
-                                    <td>
-                                        <?= $value['nama']?>
-                                    </td>
-                                    <td style="text-align: center;">
-                                        <?= $value['qiroah']?>
-                                    </td>
-                                    <td style="text-align: center;">
-                                        <?= $value['wawancara_ortu']?>
-                                    </td>
-                                    <td style="text-align: center;">
-                                        <?= $value['paquyuban']?>
-                                    </td>
-                                    <td style="text-align: center;">
-                                        <?= number_format( $value  ['nilai_akhir'])?>
-                                    </td>
-                                    <td>
-                                        <label for="" class="label label-danger">Peringkat <?=$value['peringkat']?>
+                                        <td>
+                                            <?= $no++?>
+                                        </td>
+                                        <td>
+                                            <?= $value['no_registrasi']?>
+                                        </td>
+                                        <td>
+                                            <?= $value['nama']?>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <?= $value['qiroah']?>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <?= $value['wawancara_ortu']?>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <?= $value['paquyuban']?>
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <?= number_format( $value  ['nilai_akhir'])?>
+                                        </td>
+                                        <td>
+                                            <label for="" class="label label-danger">Peringkat <?=$value['peringkat']?>
 										</label>
-                                    </td>
-                                    <td>
-                                        <?php if ($value['peringkat']<=$limit_lulus):?>
-                                        <label for="" class="label label-success">Lulus</label>
-                                        <?php else:?>
-                                        <label for="" class="label label-danger">Tidak Lulus</label>
-                                        <?php endif;?>
-                                    </td>
+                                        </td>
+                                        <td>
+                                            <?php if ($value['peringkat']<=$limit_lulus):?>
+                                            <label for="" class="label label-success">Lulus</label>
+                                            <?php else:?>
+                                            <label for="" class="label label-danger">Tidak Lulus</label>
+                                            <?php endif;?>
+                                        </td>
 
 
-                                    <?php if ($value['status_sms']== 0 ):?>
-                                    <td> <a href="#" onclick="verifikasi(<?=$value['id_user']?>);" class="label label-primary">Send SMS</a></td>
-                                    <?php elseif ($value['status_sms']==1) :?>
-                                    <td> <a href="#" class="label label-success">SMS Terkirim</a></td>
-                                    <?php endif?>
+                                        <?php if ($value['status_sms']== 0 ):?>
+                                        <td> <a href="#" onclick="verifikasi(<?=$value['id_user']?>);" class="label label-primary">Send SMS</a></td>
+                                        <?php elseif ($value['status_sms']==1) :?>
+                                        <td> <a href="#" class="label label-success">SMS Terkirim</a></td>
+                                        <?php endif?>
 
-                                </tr>
-                                <?php endforeach; ?>
+                                    </tr>
+                                    <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

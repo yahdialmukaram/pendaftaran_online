@@ -27,8 +27,7 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="x_panel">
 					<div class="x_title">
-						<h2>Data Pendaftaran Sekolah Tujuan Calon Siswa SDIT Qurrata A'yun Kabupaten Tanah Datar </h2>
-						<!-- <h4 style="text-align: center;"><b>Data Pendaftaran Sekolah Tujuan Calon Siswa SDIT Qurrata A'yun Kabupaten Tanah Datar </b></h5> -->
+						<h2>Data Tujuan Pendaftaran Sekolah Calon Siswa</h2>
 						<ul class="nav navbar-right panel_toolbox">
 							<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 							</li>
@@ -40,7 +39,6 @@
 
 					<div class="x_content">
 
-					
 						<table id="datatable" class="table table-striped table-bordered">
 							<thead>
 								<tr style="background-color: rgb(27, 27, 27);">
@@ -48,6 +46,7 @@
 									<th style="width: 15%;">No Pendaftaran</th>
 									<th style="width: 30%;">Nama Siswa</th>
 									<th>Sekolah Tujuan Daftar</th>
+									<th>Sarat</th>
 									<!-- <th style="width: 15%;">Entri Nilai Siswa</th> -->
 									</th>
 
@@ -65,6 +64,11 @@
 											data-id="<?=$value['id_user']?>" data-pendaftaran="<?=$value['no_registrasi']?>"> <i
 												class="fa fa-plus"></i>
 											Entri Nilai Siswa</a> </td> -->
+											<td>
+												<button data-id="<?=$value['sk_domisili']?>" class="btn btn-warning btn-sm show-document" type="button"><i class="fa fa-book"></i> SK Domisili</button>
+												<button data-id="<?=$value['akta_kelahiran']?>" class="btn btn-warning btn-sm show-document" type="button"><i class="fa fa-book"></i> Akta Kelahiran</button>
+												
+											</td>
 								</tr>
 							</tbody>
 							<?php endforeach; ?>
@@ -163,9 +167,34 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="show-document" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Syarat</h5>
+			</div>
+			<div class="modal-body">
+				<div class="document">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+			</div>
+		</div>
+	</div>
+</div>
 <!-- /page content -->
 <!-- end nilai -->
 <script>
+	$(".show-document").click(function (e) { 
+		e.preventDefault();
+		let data=$(this).data('id');
+		console.log(data);
+		$(".document").html(`<embed style="width: 100%;height:500px" src="<?=base_url();?>uploads/original_image/${data}" type="">`);
+		$("#show-document").modal("show");
+	});
 	$(".beri-nilai").click(function (e) {
 		e.preventDefault();
 		let name = $(this).data('name');
@@ -265,31 +294,4 @@
 </div>
 
 <!-- modal konfirmasi hapus data -->
-<div class="modal fade" id="konfirmasi" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-	<div class="modal-dialog modal-sm" role="document">
-		<div class="modal-content">
-			<form action="<?=base_url();?>controller/delete_admin" method="post">
-				<div class="modal-header">
-					<h5 class="modal-title">Konfirmasi Hapus</h5>
-
-				</div>
-				<div class="modal-body">Yakin Akan Hapus Data User ?
-					<input type="hidden" name="id" id="id">
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-					<button type="submit" class="btn btn-primary">Ya</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-
-
-<script>
-	function hapus_admin(id) {
-		$("#id").val(id);
-		$("#konfirmasi").modal("show");
-	}
-
-</script>
+<div class="modal fade" id="konfirmasi" tabinde

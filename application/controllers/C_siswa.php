@@ -165,18 +165,17 @@ class C_siswa extends CI_Controller {
 			$data['state_register']=false;
 			$data['time_remaining']=$days;           
         } 
-
+       
         $limit_lulus= 5;
         $id =$this->input->post('id');
         
         $data['cari_peringkat'] = $this->model->cari_peringkat($id_user);
 
-
         $data['nilai']= $this->model->get_nilai();
         $this->load->view('siswa/header',$data);
         $this->load->view('siswa/dashboard', $data);
         $this->load->view('siswa/footer');   
-        // echo json_encode($cari_peringkat);
+        // echo json_encode($data);
     }
     
     public function v_sdit1()
@@ -289,8 +288,7 @@ class C_siswa extends CI_Controller {
         // echo json_encode($data);
         $this->model_siswa->save_pendaftaran('table_sekolah', $data);
         
-        $message='Terimakasih Sudah Mendaftar, nomor Pendaftaran anda :'.$check_number['no_registrasi'].' berikut jadwal ujian anda :'
-        .$result[0]['jadwal'];
+        $message='Terimakasih Sudah Mendaftar, nomor Pendaftaran anda :'.$check_number['no_registrasi'].' berikut jadwal ujian anda :'.$result[0]['jadwal'];
         $send_message=$this->sms($check_number['no_hp_ortu'],$message);
         $this->session->set_flashdata('success', 'Pendaftaran anda telah berhasil');
         // echo json_encode($message);
